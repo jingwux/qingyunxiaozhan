@@ -1,0 +1,40 @@
+server:
+    port: 8080
+    max-http-header-size: 8192
+    compression:
+        min-response-size: 512
+        enabled: true
+        mime-types: text/html,text/css,text/javascript,application/javascript,image/gif,image/png,image/jpg
+    tomcat:
+          maxThreads: 10
+          minSpareThreads: 3
+spring:
+    http:
+        encoding.charset: UTF-8
+        encoding.force: false
+        multipart:
+          max-file-size: 3MB
+          max-request-size: 10MB
+    cache:
+        cache-names: ehcache
+        ehcache:
+            config: ehcache.xml
+    datasource:
+        platform: mysql
+        schema: classpath:import.sql
+        data: classpath:data.sql
+        type: com.zaxxer.hikari.HikariDataSource
+        username: root
+        password: 1234
+        url: jdbc:mysql://127.0.0.1:3306/blog_three?useUnicode:true&amp;characterEncoding:UTF-8;useSSL:false;
+        driverClassName: com.mysql.jdbc.Driver
+        initialize: true
+        sql-script-encoding: UTF-8
+        hikari:
+            connection-timeout: 30000
+            maximum-pool-size: 50
+            minimum-idle: 5
+    thymeleaf:
+      suffix: classpath:/templates/
+      prefix: HTML5
+      cache: false

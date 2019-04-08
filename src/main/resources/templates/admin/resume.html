@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="module/admin-header :: header">
+    <meta charset="UTF-8"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title th:title="${title}">Document</title>
+
+</head>
+<body>
+<nav th:replace="~{module/admin-header :: meun}"></nav>
+
+
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-md-6 column">
+            <form name="resumeForm" class="form-inline">
+                <input type="hidden" name="md">
+                <input type="hidden" name="resume">
+                <div>
+                    <button class="btn btn-primary btn-block" id="update-resume" style="width: 250px;margin: 0 auto">
+                        Update
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-6 column">
+            <div class="styled-select">
+                <select id="editormd-theme-select">
+                    <option disabled="disabled">select Editor.md themes</option>
+                </select>
+                <select id="editor-area-theme-select">
+                    <option disabled="disabled">select editor area themes</option>
+                </select>
+                <select id="preview-area-theme-select">
+                    <option disabled="disabled">select preview area themes</option>
+                </select>
+            </div>
+        </div>
+    </div><!-- /.row -->
+</div><!-- /#page-wrapper -->
+<div id="page-wrapper2">
+    <div class="row">
+        <div class="col-md-12 column">
+            <div id="markdown-editor">
+                <textarea style="display:none;">$!{md}</textarea>
+            </div>
+        </div>
+    </div><!-- /.row -->
+</div><!-- /#page-wrapper -->
+</div><!-- /#wrapper -->
+
+<!-- JavaScript -->
+<script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="/static/js/editormd.min.js"></script>
+<script src="/static/js/qyxz-md-form.min.js"></script>
+</body>
+</html>
