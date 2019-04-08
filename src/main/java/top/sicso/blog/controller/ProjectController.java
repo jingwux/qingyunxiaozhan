@@ -17,7 +17,7 @@ import top.sicso.blog.service.ProjectsService;
 public class ProjectController {
 
     @Autowired
-    private ProjectsService projsService;
+    private ProjectsService projectsService;
 
     @ApiOperation(value = "加载项目列表显示页面")
     @GetMapping("/projects")
@@ -32,8 +32,13 @@ public class ProjectController {
     @GetMapping("/projects/{projectName}")
     public String listProjects(@PathVariable String projectName, Model model) {
         model.addAttribute("title", projectName);
+//        model.addAttribute("projecs", projectsService.findAll());
         return "projects";
     }
 
 
 }
+
+
+
+

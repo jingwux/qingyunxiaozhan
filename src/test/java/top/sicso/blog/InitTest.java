@@ -18,8 +18,6 @@ import org.springframework.web.context.WebApplicationContext;
 @WebAppConfiguration
 public class InitTest {
 
-
-
     @Autowired
     private WebApplicationContext webApplicationContext;
 

@@ -9,13 +9,7 @@ import top.sicso.blog.repository.ProjectRepository;
 import top.sicso.blog.service.ProjectsService;
 
 @Service
-public class ProjectServiceImpl extends BaseServiceImpl<Project,Integer> implements ProjectsService {
+public class ProjectServiceImpl  implements ProjectsService {
 
-    @Autowired
-    private ProjectRepository projectRepository;
 
-    @Override
-    protected JpaRepository<Project, Integer> getRepository() {
-        return projectRepository;
-    }
 }
