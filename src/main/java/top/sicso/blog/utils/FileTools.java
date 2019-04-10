@@ -1,7 +1,7 @@
 package top.sicso.blog.utils;
 
 import lombok.extern.slf4j.Slf4j;
-import top.sicso.blog.exception.CommonException;
+import top.sicso.blog.exception.CustomerException;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
@@ -56,7 +56,7 @@ public class FileTools {
                 throw new IOException("File" + file + "' cannot be read");
             }
         } else {
-            throw new CommonException("File" + file + "' does not exist");
+            throw new CustomerException("File" + file + "' does not exist");
         }
         return new FileInputStream(file);
     }
