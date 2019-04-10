@@ -13,7 +13,7 @@ import java.util.List;
 public interface BlogService{
 
     // Blog
-    Blog getBlogByBlogId(Integer blogId);
+    BlogVO getBlogByBlogId(Integer blogId);
 
     PageInfo<ArchiveVO> getArchivesOrderByMonth(int pageIndex);
 

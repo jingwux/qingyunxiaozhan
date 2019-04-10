@@ -20,4 +20,10 @@ public interface BlogRepository extends JpaRepository<Blog, Integer> {
 
     List<Blog> findBlogByTagsContains(String tagName);
 
+    @Query(value = "select *  from tb_blog where vid < :blogId order by vid desc limit 1", nativeQuery = true)
+    Blog findPrevBlog(@Param("blogId") Integer blogId);
+
+    @Query(value = "select *  from tb_blog where vid > :blogId limit 1", nativeQuery = true)
+    Blog findNextBlog(@Param("blogId") Integer blogId);
+
 }

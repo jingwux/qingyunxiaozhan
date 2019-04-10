@@ -29,10 +29,14 @@ public class BlogServiceImpl implements BlogService {
     private TagRepository tagRepository;
 
     @Override
-    public Blog getBlogByBlogId(Integer blogId) {
-        Blog one = blogRepository.getOne(blogId);
-
-        return one;
+    public BlogVO getBlogByBlogId(Integer blogId) {
+        Blog blog = blogRepository.getOne(blogId);
+        BlogVO blogVO = blogWrap(blog);
+        Blog prevBlog = blogRepository.findPrevBlog(blogId);
+        Blog nextBlog = blogRepository.findNextBlog(blogId);
+        blogVO.setPrevBlog(prevBlog);
+        blogVO.setNextBlog(nextBlog);
+        return blogVO;
     }
 
     @Override
@@ -56,7 +60,7 @@ public class BlogServiceImpl implements BlogService {
     public PageInfo<BlogVO> getBlogByTagName(String tagName) {
         List<Blog> blogList = blogRepository.findBlogByTagsContains(tagName);
         List<BlogVO> blogVOList = new ArrayList<>();
-       blogList.forEach(item -> {
+        blogList.forEach(item -> {
             BlogVO blogVO = new BlogVO();
             BeanUtils.copyProperties(item, blogVO);
             blogVOList.add(blogVO);
@@ -83,5 +87,10 @@ public class BlogServiceImpl implements BlogService {
     }
 
 
+    private BlogVO blogWrap(Blog blog) {
+        BlogVO blogVO = new BlogVO();
+        BeanUtils.copyProperties(blog, blogVO);
+        return blogVO;
+    }
 
 }

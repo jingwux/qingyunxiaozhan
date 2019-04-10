@@ -10,10 +10,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import top.sicso.blog.pojo.Blog;
 import top.sicso.blog.service.BlogService;
 import top.sicso.blog.vo.ArchiveVO;
+import top.sicso.blog.vo.BlogVO;
 
 @Api(value = "/", tags = "博客显示模块")
 @Controller
@@ -50,5 +50,18 @@ public class BlogController {
         return "tagView";
     }
 
+
+    @ApiOperation(value = "博客文章")
+    @ApiImplicitParam(name = "blogId", value = "博客ID", required = true, dataType = "Integer", paramType = "path")
+    @GetMapping("/blog/detail/{blogId}")
+    public String getBlog(@PathVariable Integer blogId,Model model){
+        BlogVO blog = blogService.getBlogByBlogId(blogId);
+        model.addAttribute("title", blog.getTitle());
+        model.addAttribute("tagName", blog.getTags());
+        model.addAttribute("article", blog.getArticle());
+        model.addAttribute("prev", blog.getPrevBlog());
+        model.addAttribute("next", blog.getNextBlog());
+        return "article";
+    }
 
 }

@@ -8,6 +8,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import top.sicso.blog.Application;
 import top.sicso.blog.pojo.Tag;
 import top.sicso.blog.service.BlogService;
+import top.sicso.blog.vo.BlogVO;
 
 import java.util.List;
 
@@ -34,5 +35,11 @@ public class BlogServiceImplTest {
     public void getAllTags(){
         List<Tag> allTags = blogService.getAllTags();
         allTags.forEach(System.out::println);
+    }
+
+
+    @Test
+    public void getBlogByBlogId(){
+        BlogVO blog = blogService.getBlogByBlogId(34);
     }
 }
