@@ -1,14 +1,110 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>Page Not Found</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="../static/css/result-page.min.css" type="text/css"/>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="header">
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title th:text="${title}">青云小栈</title>
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+    <link th:href="@{~/css/landing-page.min.css}" href="/static/css/landing-page.min.css" rel="stylesheet"
+          id="theme-css"/>
+    <link th:href="@{~/css/qyxz-md.min.css}" href="/static/css/qyxz-md.min.css" rel="stylesheet"/>
+    <link href="http://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css" rel="stylesheet"/>
+    <style>
+        footer {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .error-container {
+            position: relative;
+            top: 30%;
+        }
+
+        .error-container-404 {
+            position: absolute;
+            right: 10%;
+        }
+    </style>
 </head>
-<body><h1>Page Not Found</h1>
-<p>Sorry, but the page you were trying to view does not exist.</p>
-<br/>
-<p>error message:${errorMsg}</p>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+    <div class="container topnav">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand topnav" href="/">首页</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right myBar">
+                <li>
+                    <a href="/archives/1">归档</a>
+                </li>
+                <li>
+                    <a href="/tags">标签</a>
+                </li>
+                <li>
+                    <a href="/projects/">项目</a>
+                </li>
+                <li>
+                    <a href="/about">资源</a>
+                </li>
+                <li>
+                    <a href="/admin/">Admin</a>
+                </li>
+                <li>
+                    <a href='javascript:void(0)' onclick="day_night()"><i class="fa fa-moon-o" id="day-night"></i>
+                        <span class="network-name" id="day-night-name">夜</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container error-container">
+    <div class="error-container-404">
+        <h1>404 Page Not Found</h1>
+        <p>Sorry, but the page you were trying to view does not exist.</p>
+        <br/>
+        <p><h5 th:text="${errorMsg}"></h5></p>
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="list-inline">
+                    <li>
+                        <a href="/archives/1">归档</a>
+                    </li>
+                    <li>
+                        <a href="/tags">标签</a>
+                    </li>
+                    <li>
+                        <a href="/projects/1">项目</a>
+                    </li>
+                    <li>
+                        <a href="/about">资源</a>
+                    </li>
+                    <li>
+                        <a href="/admin/">xxx</a>
+                    </li>
+                </ul>
+                <p class="copyright text-muted small"></p>
+            </div>
+        </div>
+    </div>
+    <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</footer>
 </body>
 </html>

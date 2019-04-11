@@ -11,20 +11,6 @@
     <link th:href="@{~/css/qyxz-md.min.css}" href="/static/css/qyxz-md.min.css" rel="stylesheet"/>
     <link href="http://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css" rel="stylesheet"/>
 </head>
-<script type="text/javascript">
-    function switch_theme_css() {
-        var css = document.getElementById("theme-css");
-        if (localStorage.blog_theme == undefined) {
-            localStorage.blog_theme = "light";
-        }
-        if (localStorage.blog_theme == "dark") {
-            css.href = "/static/css/landing-page-dark.min.css";
-        }
-    }
-
-    switch_theme_css();
-</script>
-
 <body>
 <div th:fragment="nav">
     <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
@@ -65,36 +51,16 @@
             </div>
         </div>
     </nav>
-    <div class="intro-header">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="intro-message">
-                        <h1><span th:text="${info?.Username}"></span></h1>
-                        <h3>my blog about programming</h3>
-                        <hr class="intro-divider"/>
-                        <ul class="list-inline intro-social-buttons">
-                            <!--<li>
-                                <a href="mailto:$!{info.Email}" class="btn btn-default btn-lg"><i class="fa fa-envelope fa-fw"></i> <span class="network-name">Email</span></a>
-                            </li>-->
-                            <li>
-                                <a th:href="${info?.Github}" class="btn btn-default btn-lg"><i
-                                        class="fa fa-github fa-fw"></i>
-                                    <span class="network-name">Github</span></a>
-                            </li>
-                            <!--<li>
-                                <a href="$!{info.Twitter}" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
-                            </li>-->
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <a href="#content" id="blog_content"></a>
-
 </div>
 
-</body>
+<div class="container" style="min-height: 50%;">
+    <h1>未知错误</h1>
+    <p>出现黑洞，请联系管理员。。。。</p>
+    <br/>
+    <p>error message: <span th:text="${errorMsg == null ? '' : errorMsg}"></span></p>
+</div>
 
+<div th:replace="~{module/footer :: footer}"></div>
+
+</body>
 </html>
