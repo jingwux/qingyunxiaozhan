@@ -20,13 +20,13 @@
                 </div>
             </div>
             <br><br>
-            <span th:if="${prev}">
-                <a th:href="/a/${prev.vid}" class="post-flip">
+            <span th:if="${prev != null}">
+                <a th:href="@{~'/a/' + ${prev.vid}}" class="post-flip">
                     <i class="fa fa-arrow-left"></i><span th:title="${prev.title}"></span>
                 </a>
             </span>
-            <span th:if="${next}">
-                <a href="/blog/detail/$!{next.Vid}" class="post-flip" style="float: right;">
+            <span th:if="${next != null}">
+                <a th:href="@{~'/blog/detail/' + next.Vid}" class="post-flip" style="float: right;">
                     <span th:text="${next.title}"></span><i class="fa fa-arrow-right"></i>
                 </a>
             </span>

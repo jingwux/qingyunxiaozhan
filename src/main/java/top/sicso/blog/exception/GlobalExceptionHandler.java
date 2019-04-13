@@ -1,18 +1,11 @@
 package top.sicso.blog.exception;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpStatus;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.NoHandlerFoundException;
 import top.sicso.blog.common.ResultBean;
 import top.sicso.blog.common.ResultCodeEnum;
-
-import javax.servlet.http.HttpServletResponse;
 
 /**
  * 全局异常处理类
@@ -32,8 +25,8 @@ public class GlobalExceptionHandler {
     @ResponseBody
     public ResultBean defaultException(Exception e) {
         ResultBean resultBean = new ResultBean();
-        resultBean.setCode(1);
-        resultBean.setMessage("未知错误: " + e.getMessage());
+        resultBean.setCode(ResultCodeEnum.UNKNOWN_ERROR.getCode());
+        resultBean.setMessage(ResultCodeEnum.UNKNOWN_ERROR.getMessage() + "：" + e.getMessage());
         return resultBean;
     }
 

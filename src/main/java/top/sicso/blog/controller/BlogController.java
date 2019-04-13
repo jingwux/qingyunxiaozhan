@@ -26,9 +26,9 @@ public class BlogController {
     @ApiImplicitParam(name = "pageIndex", value = "分页页码", dataType = "int", paramType = "path")
     @GetMapping(value = "/archives/{pageIndex}")
     public String loadArchivesPage(@PathVariable int pageIndex, Model model) {
-        PageInfo<ArchiveVO> archivesOrderByMonth = blogService.getArchivesOrderByMonth(pageIndex);
+        PageInfo<ArchiveVO> archives = blogService.getArchivesOrderByMonth(pageIndex);
         model.addAttribute("title", "随笔归档");
-        model.addAttribute("archives", archivesOrderByMonth);
+        model.addAttribute("archives", archives);
         return "archives";
     }
 
