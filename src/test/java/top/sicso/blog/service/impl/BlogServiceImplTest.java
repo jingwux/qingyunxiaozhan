@@ -6,29 +6,28 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import top.sicso.blog.Application;
+import top.sicso.blog.InitTest;
 import top.sicso.blog.pojo.Tag;
 import top.sicso.blog.service.BlogService;
 import top.sicso.blog.vo.BlogVO;
 
 import java.util.List;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest(classes = Application.class)
-public class BlogServiceImplTest {
+public class BlogServiceImplTest extends InitTest {
 
     @Autowired
     private BlogService blogService;
 
 
     @Test
-    public void getArchivesOrderByMonth() {
-        blogService.getArchivesOrderByMonth(0);
-
+    public void getBlogByTagName(){
+        blogService.getBlogByTagName("1");
     }
 
     @Test
-    public void getBlogByTagName(){
-        blogService.getBlogByTagName("1");
+    public void getArchivesOrderByMonth() {
+        blogService.getArchivesOrderByMonth(0);
+
     }
 
     @Test
