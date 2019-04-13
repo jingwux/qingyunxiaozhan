@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class IndexController {
 
     @ApiOperation(value = "加载首页")
-    @GetMapping("/index")
+    @GetMapping({"/index", "", "/"})
     public String loadIndexPage() {
         return "index";
     }
@@ -25,6 +25,12 @@ public class IndexController {
     @GetMapping("/error")
     public String loadErrorPage() {
         return "500";
+    }
+
+    @ApiOperation(value = "加载登录页面")
+    @GetMapping("/login")
+    public String loadLoginPage() {
+        return "login";
     }
 
 
