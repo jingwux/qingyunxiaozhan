@@ -9,62 +9,55 @@
 
 </head>
 <body>
-<nav th:replace="~{module/admin-header :: meun}"></nav>
+`
+<div id="wrapper">
+    <nav th:replace="~{module/admin-header :: meun}"></nav>
 
-<div id="page-wrapper">
-    <div class="row">
-        <div class="col-md-6 column">
-            <form role="form" class="form-inline" name="blogForm">
-                <div class="form-group">
-                    <label for="blogTitle" class="text-warning">Title</label>
-                    <input type="text" class="form-control" id="blogTitle" name="title" placeholder="请输入博客标题"/>
-                </div>
-                <div class="form-group">
-                    <label for="blogTags" class="text-warning">Tags</label>
-                    <input type="text" class="form-control" id="blogTags" name="tags" placeholder="输入标签后请点击回车键"
-                           data-role="tagsinput"/>
-                </div>
-                <input type="hidden" name="md"/>
-                <input type="hidden" name="article"/>
-                <div class="form-group">
-                    <label for="add-blog" class="text-warning">submit</label>
+    <div id="page-wrapper">
+        <div class="row">
+            <div class="col-md-10 column">
+                <form role="form" class="form-inline" name="blogForm">
+                    <input type="text" id="blogTitle" class="form-control" name="title" placeholder="请输入博客标题"
+                           style="width: 333px;"/>
+                    <input type="text" id="blogTags" name="tags" placeholder="输入标签" data-role="tagsinput"/>
+                    <input type="hidden" name="md"/>
+                    <input type="hidden" name="article"/>
                     <input type="submit" class="form-control qyxz-input" id="add-blog" value="save"/>
-                </div>
-            </form>
-        </div>
-        <div class="col-md-6 column">
-            <div class="styled-select">
-                <select id="editormd-theme-select">
-                    <option disabled="disabled">select Editor.md themes</option>
-                </select>
-                <select id="editor-area-theme-select">
-                    <option disabled="disabled">select editor area themes</option>
-                </select>
-                <select id="preview-area-theme-select">
-                    <option disabled="disabled">select preview area themes</option>
-                </select>
+                </form>
             </div>
-        </div>
-    </div><!-- /.row -->
-</div><!-- /#page-wrapper -->
+            <!-- <div class="col-md-6 column">
+                 <div class="styled-select form-inlin">
+                     <select id="editormd-theme-select" class="form-control">
+                         <option disabled="disabled">select Editor.md themes</option>
+                     </select>
+                     <select id="editor-area-theme-select" class="form-control">
+                         <option disabled="disabled">select editor area themes</option>
+                     </select>
+                     <select id="preview-area-theme-select" class="form-control">
+                         <option disabled="disabled">select preview area themes</option>
+                     </select>
+                 </div>
+             </div>-->
+        </div><!-- /.row -->
+    </div><!-- /#page-wrapper -->
 
-<div id="page-wrapper1">
-    <div class="row">
-        <div class="col-md-12 column">
-            <div id="markdown-editor">
-                <textarea style="display:none;"></textarea>
+    <div id="page-wrapper">
+        <div class="row">
+            <div class="col-md-12 column">
+                <div id="markdown-editor">
+                    <textarea style="   display:none;"></textarea>
+                </div>
             </div>
-        </div>
-    </div><!-- /.row -->
-</div><!-- /#page-wrapper -->
+        </div><!-- /.row -->
+    </div><!-- /#page-wrapper -->
 
 </div><!-- /#wrapper -->
 
 <!-- JavaScript -->
 <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
 <script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="/static/js/editormd.min.js"></script>
-<script src="/static/js/bootstrap-tagsinput.min.js"></script>
-<script src="/static/js/qyxz-md-form.min.js"></script>
+<script th:href="@{~/static/css/editormd.min.js}" src="/static/js/editormd.min.js"></script>
+<script th:href="@{~/static/css/bootstrap-tagsinput.min.js}" src="/static/js/bootstrap-tagsinput.min.js"></script>
+<script th:href="@{~/static/js/qyxz-md-form.min.js}" src="/static/js/qyxz-md-form.min.js"></script>
 </body>
 </html>
