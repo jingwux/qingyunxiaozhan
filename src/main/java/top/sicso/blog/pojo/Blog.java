@@ -15,7 +15,7 @@ public class Blog {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer vid;//id
+    private Integer id;//id
 
     private Date date;//博客创建日期
 

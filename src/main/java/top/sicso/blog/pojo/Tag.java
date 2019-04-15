@@ -12,11 +12,11 @@ public class Tag {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer tid;
+    private Integer id;
 
     @Column(name = "name")
     private String tagName;
 
-    private Integer vid;
+    private Integer blogId;
 
 }

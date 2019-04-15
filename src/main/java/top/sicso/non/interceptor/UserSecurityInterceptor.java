@@ -18,7 +18,7 @@ public class UserSecurityInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         Object obj = request.getSession().getAttribute("cur_user");
         if (!(obj instanceof Info)) {
-            response.sendRedirect(request.getContextPath() + "/login");
+            response.sendRedirect(request.getContextPath() + "/admin/login");
             return false;
         }
         return true;

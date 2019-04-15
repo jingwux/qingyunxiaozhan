@@ -20,13 +20,13 @@ import java.util.Arrays;
  * web页面配置类，拦截器地址在此注册
  */
 @Configuration
-public class WebMvcConf extends WebMvcConfigurationSupport implements EnvironmentAware {
+public class WebConfig extends WebMvcConfigurationSupport implements EnvironmentAware {
 
 
     private UserSecurityInterceptor securityInterceptor;
 
     @Autowired
-    public WebMvcConf(UserSecurityInterceptor securityInterceptor) {
+    public WebConfig(UserSecurityInterceptor securityInterceptor) {
         super();
         this.securityInterceptor = securityInterceptor;
     }

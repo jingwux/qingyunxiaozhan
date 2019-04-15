@@ -83,7 +83,7 @@ public class BlogServiceImpl implements BlogService {
 
     @Override
     public List<Tag> getTagsByBlogId(Integer blogId) {
-        return tagRepository.findByVid(blogId);
+        return tagRepository.findByBlogId(blogId);
     }
 
 
