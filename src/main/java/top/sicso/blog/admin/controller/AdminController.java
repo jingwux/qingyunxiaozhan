@@ -53,8 +53,8 @@ public class AdminController {
     @ApiImplicitParam(name = "博客内容", value = "博客相关", required = true, paramType = "query", dataType = "top.sicso.blog.pojo.Blog")
     @PostMapping("/addBlog")
     public String addBlog(Blog blog) {
-
-        return "";
+//        blogService.addBlog(blog);
+        return "redirect:/admin/listBlogPage";
     }
 
 }

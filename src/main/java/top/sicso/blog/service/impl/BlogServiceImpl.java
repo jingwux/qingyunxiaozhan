@@ -71,6 +71,11 @@ public class BlogServiceImpl implements BlogService {
     }
 
     @Override
+    public Blog addBlog(Blog blog) {
+        return blogRepository.save(blog);
+    }
+
+    @Override
     public Tag getTagByTagName(String tagName) {
         return tagRepository.findByTagName(tagName);
     }

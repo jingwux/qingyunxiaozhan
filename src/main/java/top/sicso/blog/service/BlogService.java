@@ -19,6 +19,8 @@ public interface BlogService{
 
     PageInfo<BlogVO> getBlogByTagName(String tagName);
 
+    Blog addBlog(Blog blog);
+
 
     // Tag
 
