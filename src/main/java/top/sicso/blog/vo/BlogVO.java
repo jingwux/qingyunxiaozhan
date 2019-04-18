@@ -1,15 +1,17 @@
 package top.sicso.blog.vo;
 
 import lombok.Data;
+import lombok.ToString;
 import top.sicso.blog.pojo.Blog;
 
 import javax.persistence.Transient;
 import java.sql.Date;
 
 @Data
+@ToString
 public class BlogVO {
 
-    private Integer vid;//id
+    private Integer id;//id
 
     private Date date;//博客创建日期
 

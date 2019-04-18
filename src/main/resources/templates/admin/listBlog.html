@@ -9,54 +9,56 @@
 
 </head>
 <body>
-<nav th:replace="~{module/admin-header :: meun}"></nav>
+<div id="wrapper">
 
-<div id="page-wrapper">
-    <div class="row">
-        <div class="col-lg-12">
-            <h1>Blog List</h1>
-            <ol class="breadcrumb">
-                <li><a href="/admin/"><i class="fa fa-dashboard"></i>Monitor</a></li>
-                <li class="active"><i class="fa fa-table"></i>Blogs</li>
-            </ol>
-        </div>
-    </div><!-- /.row -->
+    <nav th:replace="~{module/admin-header :: meun}"></nav>
 
-    <div class="row">
-        <div class="col-lg-12">
-            <h2>All Pages</h2>
-            <div class="table-responsive">
-                <table class="table table-bordered table-hover">
-                    <thead>
-                    <tr>
-                        <th>Blog<i class="fa fa-sort"></i></th>
-                        <th>Tags<i class="fa fa-sort"></i></th>
-                        <th>Operation<i class="fa fa-sort"></i></th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    #foreach($item in ${blogList})
-                    #liClass($velocityCount)
-                    <td>$!{item.Title}</td>
-                    <td>$!{item.Tags}</td>
-                    <td>
-                        <a href="/admin/update$!{item.Vid}"><i class="fa fa-pencil"></i></a>
-                        <a class="delete" role="button" href="/admin/delete/${item.Vid}"  data-title="Delete this blog!" data-confirm-button="Yes">
-                            <i class="fa fa-trash-o"></i></a>
-                    </td>
-                    </tr>
-                    #end
-                    </tbody>
-                </table>
-                <center>
-                    #set($href = "/admin/blogList")
-                    #flip($pageNum  $current $href)
-                </center>
-
+    <div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>博客列表</h1>
+                <ol class="breadcrumb">
+                    <li><a href="/admin/"><i class="fa fa-dashboard"></i>Dashboard</a></li>
+                    <li class="active"><i class="fa fa-table"></i>Blogs</li>
+                </ol>
             </div>
-        </div>
-    </div><!-- /.row -->
-</div><!-- /#page-wrapper -->
+        </div><!-- /.row -->
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <th>Blog<i class="fa fa-sort"></i></th>
+                            <th>Tags<i class="fa fa-sort"></i></th>
+                            <th>Operation<i class="fa fa-sort"></i></th>
+                        </tr>
+                        </thead>
+                        <tbody th:each="blog : ${blogs}">
+                        <tr>
+                            <!--#liClass($velocityCount)-->
+                            <td th:text="${blog.title}"></td>
+                            <td th:text="${blog.tags}"></td>
+                            <td>
+                                <a th:href="@{'/admin/update' + ${item.id}}"><i class="fa fa-pencil"></i></a>
+                                <a class="delete" role="button" th:href="@{'/admin/delete/' + ${item.id}}"
+                                   data-title="Delete this blog!" data-confirm-button="Yes">
+                                    <i class="fa fa-trash-o"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <center>
+                        #set($href = "/admin/blogList")
+                        #flip($pageNum $current $href)
+                    </center>
+
+                </div>
+            </div>
+        </div><!-- /.row -->
+    </div><!-- /#page-wrapper -->
 
 </div><!-- /#wrapper -->
 <!-- JavaScript -->

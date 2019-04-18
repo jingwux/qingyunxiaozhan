@@ -6,6 +6,7 @@ import top.sicso.blog.common.service.impl.BaseServiceImpl;
 import top.sicso.blog.pojo.Blog;
 import top.sicso.blog.pojo.Tag;
 import top.sicso.blog.vo.ArchiveVO;
+import top.sicso.blog.vo.BlogCondtion;
 import top.sicso.blog.vo.BlogVO;
 
 import java.util.List;
@@ -19,7 +20,10 @@ public interface BlogService{
 
     PageInfo<BlogVO> getBlogByTagName(String tagName);
 
+    PageInfo<BlogVO> getBlogByCondition(BlogCondtion blogCondtion);
+
     Blog addBlog(Blog blog);
+
 
 
     // Tag

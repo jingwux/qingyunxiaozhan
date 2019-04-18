@@ -46,18 +46,6 @@ public class WebConfig extends WebMvcConfigurationSupport implements Environment
     }
 
     @Bean
-    public CorsFilter corsFilter() {
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowCredentials(true);
-        configuration.addAllowedOrigin("*");
-        configuration.addAllowedHeader("*");
-        configuration.setAllowedMethods(Arrays.asList("GET", "PUT", "POST", "PATCH", "DELETE"));
-        source.registerCorsConfiguration("/**", configuration);
-        return new CorsFilter(source);
-    }
-
-    @Bean
     public SystemSetting systemSetting(Environment env) {
         return SystemSetting.builder()
                 .picHome(env.getProperty("home"))

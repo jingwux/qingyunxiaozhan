@@ -40,6 +40,7 @@ public class AdminController {
     @ApiOperation(value = "加载博客列表页面", notes = "加载发布博客页面")
     @GetMapping("/listBlogPage")
     public String loadBlogListPage() {
+
         return "admin/listBlog";
     }
 

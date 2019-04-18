@@ -9,23 +9,25 @@
 
 </head>
 <body>
-<nav th:replace="~{module/admin-header :: meun}"></nav>
+<div id="wrapper">
 
-<div id="page-wrapper">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="panel panel-success">
-                <div class="panel-heading">
-                    <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i>The usage of memory</h3>
-                </div>
-                <div class="panel-body">
-                    <div id="memory-donut"></div>
+    <nav th:replace="~{module/admin-header :: meun}"></nav>
+
+    <div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i>The usage of memory</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div id="memory-donut"></div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div><!-- /.row -->
+        </div><!-- /.row -->
 
-</div><!-- /#page-wrapper -->
+    </div><!-- /#page-wrapper -->
 
 </div><!-- /#wrapper -->
 

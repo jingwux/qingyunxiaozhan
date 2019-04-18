@@ -19,7 +19,7 @@
                 <div class="post-item" th:each="blog : ${tags.list}">
                     <div class="post-time" th:text="blog.m">
                     </div>
-                    <a th:href="@{'/blog/detail/'+ ${blog.vid}}" class="post-link" th:text="${blog.title}"></a>
+                    <a th:href="@{'/blog/detail/'+ ${blog.id}}" class="post-link" th:text="${blog.title}"></a>
                 </div>
                 <br><br>
             </div>
