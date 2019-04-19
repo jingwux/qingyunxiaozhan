@@ -44,7 +44,7 @@ public class IndexController {
         return "login";
     }
 
-    @ApiOperation(value = "加载登录页面")
+    @ApiOperation(value = "进行登录")
     @PostMapping("/login.do")
     public String login(String username, String password, HttpSession session, RedirectAttributes redirectAttributes) {
         boolean flag = adminService.login(username, password);

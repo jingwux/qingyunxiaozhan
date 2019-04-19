@@ -8,6 +8,6 @@ public interface AdminService {
 
     boolean login(String username,String password);
 
-
+    Admin getByName(String adminName);
 
 }

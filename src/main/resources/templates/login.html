@@ -6,10 +6,10 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title th:title="${title}">登录</title>
-    <link th:href="@{~/favicon.ico}" rel="shortcut icon" />
-    <link th:href="@{~/static/css/login-page.min.css}" href="/static/css/login-page.min.css" rel="stylesheet">
-    <link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link href="http://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css" rel="stylesheet">
+    <link th:href="@{~/static/favicon.ico}" href="/favicon.ico"  rel="shortcut icon" />
+    <link th:href="@{~/static/css/login-page.min.css}" href="/css/login-page.min.css" rel="stylesheet" type="text/css"/>
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="http://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css" rel="stylesheet" type="text/css"/>
 
 </head>
 <body class="login-page">
@@ -52,11 +52,11 @@
 
 <!--<div th:replace="~{module/footer :: footer}"></div>-->
 
-<script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
-<script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="http://cdn.bootcss.com/blueimp-md5/2.3.1/js/md5.min.js"></script>
-<script th:src="@{~/static/js/jquery.bootstrap-growl.min.js}" src="/static/js/jquery.bootstrap-growl.min.js"></script>
-<script th:src="@{~/static/js/qyxz-form.min.js}" src="/static/js/qyxz-form.min.js"></script>
+<script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"  type="text/javascript"></script>
+<script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"  type="text/javascript"></script>
+<script src="http://cdn.bootcss.com/blueimp-md5/2.3.1/js/md5.min.js"  type="text/javascript"></script>
+<script th:src="@{~/static/js/jquery.bootstrap-growl.min.js}" src="/static/js/jquery.bootstrap-growl.min.js"  type="text/javascript"></script>
+<script th:src="@{~/static/js/qyxz-form.min.js}" src="/static/js/qyxz-form.min.js"  type="text/javascript"></script>
 <script type="text/javascript">
     /* #set($ii = 1)
      #set($ii = ${success})

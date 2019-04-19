@@ -2,18 +2,16 @@ package top.sicso.blog.service.impl;
 
 import com.github.pagehelper.PageInfo;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
-import top.sicso.blog.Application;
 import top.sicso.blog.InitTest;
 import top.sicso.blog.pojo.Tag;
 import top.sicso.blog.service.BlogService;
-import top.sicso.blog.vo.BlogCondtion;
+import top.sicso.blog.vo.BlogCondition;
 import top.sicso.blog.vo.BlogVO;
 
 import java.util.List;
+
+import static org.junit.Assert.*;
 
 public class BlogServiceImplTest extends InitTest {
 
@@ -46,11 +44,11 @@ public class BlogServiceImplTest extends InitTest {
 
     @Test
     public void getBlogByCondition(){
-        BlogCondtion blogCondtion = new BlogCondtion();
-        blogCondtion.setPageIndex(1);
-        blogCondtion.setPageSize(5);
-        blogCondtion.setTags("java");
-        PageInfo<BlogVO> blog = blogService.getBlogByCondition(blogCondtion);
+        BlogCondition blogCondition = new BlogCondition();
+        blogCondition.setPageIndex(0);
+        blogCondition.setPageSize(5);
+        PageInfo<BlogVO> blog = blogService.getBlogByCondition(blogCondition);
+        assertNotNull(blog);
         blog.getList().forEach(System.out::println);
     }
 

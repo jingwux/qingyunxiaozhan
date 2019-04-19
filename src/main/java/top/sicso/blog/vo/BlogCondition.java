@@ -6,7 +6,7 @@ import top.sicso.blog.common.BaseCondition;
 import java.sql.Date;
 
 @Data
-public class BlogCondtion extends BaseCondition {
+public class BlogCondition extends BaseCondition {
 
     private Integer id;//id
 

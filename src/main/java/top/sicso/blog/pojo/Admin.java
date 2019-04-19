@@ -3,6 +3,7 @@ package top.sicso.blog.pojo;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @Entity
@@ -26,5 +27,8 @@ public class Admin {
     private String avatar;
 
     private String info;
+
+    @Transient
+    private List<Role> roles;
 
 }

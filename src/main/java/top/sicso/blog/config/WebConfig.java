@@ -23,19 +23,19 @@ import java.util.Arrays;
 public class WebConfig extends WebMvcConfigurationSupport implements EnvironmentAware {
 
 
-    private UserSecurityInterceptor securityInterceptor;
+//    private UserSecurityInterceptor securityInterceptor;
 
-    @Autowired
+ /*   @Autowired
     public WebConfig(UserSecurityInterceptor securityInterceptor) {
         super();
         this.securityInterceptor = securityInterceptor;
-    }
+    }*/
 
-    @Override
+/*    @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(securityInterceptor).addPathPatterns("/admin/**")
                 .excludePathPatterns("/", "/login.html", "/login", "/static/**", "/**.ico");//配置登录拦截器拦截路径
-    }
+    }*/
 
     @Override
     protected void addResourceHandlers(ResourceHandlerRegistry registry) {

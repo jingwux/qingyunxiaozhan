@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
  * 用户登录后台管理的拦截器
  * 存在该用户session则允许通过，否则返回登录页面
  */
-@Component
+//@Component
 public class UserSecurityInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {

@@ -15,7 +15,7 @@ import top.sicso.blog.repository.BlogRepository;
 import top.sicso.blog.repository.TagRepository;
 import top.sicso.blog.service.BlogService;
 import top.sicso.blog.vo.ArchiveVO;
-import top.sicso.blog.vo.BlogCondtion;
+import top.sicso.blog.vo.BlogCondition;
 import top.sicso.blog.vo.BlogVO;
 
 import javax.persistence.criteria.Predicate;
@@ -77,29 +77,30 @@ public class BlogServiceImpl implements BlogService {
     }
 
     @Override
-    public PageInfo<BlogVO> getBlogByCondition(BlogCondtion blogCondtion) {
-        Sort sort = null;
-        if (StringUtils.isNotBlank(blogCondtion.getSort()) && StringUtils.isNotBlank(blogCondtion.getOrder())) {
-            sort = new Sort(Sort.Direction.valueOf(blogCondtion.getSort()), blogCondtion.getOrder());
+    public PageInfo<BlogVO> getBlogByCondition(BlogCondition blogCondition) {
+
+        Sort sort;
+        if (StringUtils.isNotBlank(blogCondition.getSort()) && StringUtils.isNotBlank(blogCondition.getOrder())) {
+            sort = new Sort(Sort.Direction.valueOf(blogCondition.getSort()), blogCondition.getOrder());
+        } else {
+            sort = Sort.unsorted();
         }
 
-        // Todo
-        //  sort不能为null
-        PageRequest pageRequest = PageRequest.of(blogCondtion.getPageIndex(), blogCondtion.getPageSize(), sort);
+        PageRequest pageRequest = PageRequest.of(blogCondition.getPageIndex(), blogCondition.getPageSize(), sort);
 
         // 动态SQL
         Specification<Blog> specification = (Specification<Blog>) (root, query, criteriaBuilder) -> {
             List<Predicate> predicates = new ArrayList<>();
-            if (StringUtils.isNotBlank(blogCondtion.getTitle())) {
-                Predicate likeTitle = criteriaBuilder.like(root.get("title").as(String.class), "%" + blogCondtion.getTitle() + "%");
+            if (StringUtils.isNotBlank(blogCondition.getTitle())) {
+                Predicate likeTitle = criteriaBuilder.like(root.get("title").as(String.class), "%" + blogCondition.getTitle() + "%");
                 predicates.add(likeTitle);
             }
-            if (StringUtils.isNotBlank(blogCondtion.getTags())) {
-                Predicate likeTags = criteriaBuilder.like(root.get("tags").as(String.class), "%" + blogCondtion.getTags() + "%");
+            if (StringUtils.isNotBlank(blogCondition.getTags())) {
+                Predicate likeTags = criteriaBuilder.like(root.get("tags").as(String.class), "%" + blogCondition.getTags() + "%");
                 predicates.add(likeTags);
             }
-            if (blogCondtion.getId() != null) {
-                Predicate id = criteriaBuilder.equal(root.get("id").as(Integer.class), blogCondtion.getId());
+            if (blogCondition.getId() != null) {
+                Predicate id = criteriaBuilder.equal(root.get("id").as(Integer.class), blogCondition.getId());
                 predicates.add(id);
             }
             return criteriaBuilder.and(predicates.toArray(new Predicate[0]));
@@ -109,7 +110,7 @@ public class BlogServiceImpl implements BlogService {
         List<Blog> blogs = blogRepository.findAll(specification, pageRequest).getContent();
         blogs.forEach(p -> {
             BlogVO blogVO = new BlogVO();
-            BeanUtils.copyProperties(p, blogCondtion);
+            BeanUtils.copyProperties(p, blogVO);
             blogVOList.add(blogVO);
         });
         return new PageInfo<>(blogVOList);
