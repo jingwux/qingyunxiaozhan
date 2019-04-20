@@ -6,6 +6,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import top.sicso.blog.pojo.Admin;
 import top.sicso.blog.service.AdminService;
@@ -17,8 +18,10 @@ public class CustomerUserDetailService implements UserDetailsService {
     private AdminService adminService;
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Admin admin = adminService.getByName(username);
-        return new User(admin.getUsername(), admin.getPassword(), AuthorityUtils.commaSeparatedStringToAuthorityList("ADMIN"));
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        String encode = encoder.encode(admin.getPassword().trim());
+        return new User(admin.getUsername(), encode, AuthorityUtils.commaSeparatedStringToAuthorityList("ROLE_ADMIN"));
     }
 }
