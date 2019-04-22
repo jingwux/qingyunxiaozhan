@@ -54,33 +54,5 @@ public class ResourceVO {
         }
     }
 
-    enum ResourceStatusEnum{
-        AVAILABLE(0,"有效"),
-        DISABLE(1,"无效");
-
-        private int resourceStatus;
-        private String resourceStatusValue;
-
-        ResourceStatusEnum(int resourceStatus, String resourceStatusValue) {
-            this.resourceStatus = resourceStatus;
-            this.resourceStatusValue = resourceStatusValue;
-        }
-
-        public int getResourceStatus() {
-            return resourceStatus;
-        }
-
-        public void setResourceStatus(int resourceStatus) {
-            this.resourceStatus = resourceStatus;
-        }
-
-        public String getResourceStatusValue() {
-            return resourceStatusValue;
-        }
-
-        public void setResourceStatusValue(String resourceStatusValue) {
-            this.resourceStatusValue = resourceStatusValue;
-        }
-    }
 
 }

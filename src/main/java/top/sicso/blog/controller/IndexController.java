@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import top.sicso.blog.service.AdminService;
+import top.sicso.blog.admin.service.AdminService;
 
 import javax.servlet.http.HttpSession;
 

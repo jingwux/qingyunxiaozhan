@@ -1,4 +1,4 @@
-package top.sicso.blog.service;
+package top.sicso.blog.admin.service;
 
 import top.sicso.blog.pojo.Admin;
 

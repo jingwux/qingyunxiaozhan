@@ -35,14 +35,14 @@
                             <th>Operation<i class="fa fa-sort"></i></th>
                         </tr>
                         </thead>
-                        <tbody th:each="blog : ${blogs}">
+                        <tbody th:each="blog : ${blogs.list}">
                         <tr>
                             <!--#liClass($velocityCount)-->
                             <td th:text="${blog.title}"></td>
                             <td th:text="${blog.tags}"></td>
                             <td>
-                                <a th:href="@{'/admin/update' + ${item.id}}"><i class="fa fa-pencil"></i></a>
-                                <a class="delete" role="button" th:href="@{'/admin/delete/' + ${item.id}}"
+                                <a th:href="@{'/admin/update/' + ${blog.id}}"><i class="fa fa-pencil"></i></a>
+                                <a class="delete" role="button" th:href="@{'/admin/delete/' + ${blog.id}}"
                                    data-title="Delete this blog!" data-confirm-button="Yes">
                                     <i class="fa fa-trash-o"></i>
                                 </a>
@@ -50,11 +50,25 @@
                         </tr>
                         </tbody>
                     </table>
-                    <center>
-                        #set($href = "/admin/blogList")
-                        #flip($pageNum $current $href)
-                    </center>
-
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination">
+                            <li>
+                                <a href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li>
+                                <a href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
         </div><!-- /.row -->
@@ -67,6 +81,8 @@
 <script src="/static/js/jquery.confirm.min.js"></script>
 <script type="text/javascript">
     $(".delete").confirm();
+
+
 </script>
 </body>
 </html>

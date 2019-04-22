@@ -9,7 +9,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import top.sicso.blog.pojo.Admin;
-import top.sicso.blog.service.AdminService;
+import top.sicso.blog.admin.service.AdminService;
 
 @Service
 public class CustomerUserDetailService implements UserDetailsService {

@@ -1,17 +1,20 @@
 package top.sicso.blog.admin.controller;
 
+import com.github.pagehelper.PageInfo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import top.sicso.blog.pojo.Blog;
-import top.sicso.blog.service.AdminService;
+import top.sicso.blog.admin.service.AdminService;
 import top.sicso.blog.service.BlogService;
+import top.sicso.blog.vo.BlogCondition;
 import top.sicso.blog.vo.BlogVO;
 
 @Api(value = "/", tags = "博客管理模块")
@@ -38,9 +41,12 @@ public class AdminController {
     }
 
     @ApiOperation(value = "加载博客列表页面", notes = "加载发布博客页面")
+    @ApiImplicitParam(name = "博客列表", value = "博客列表", required = false, paramType = "query", dataType = "top.sicso.blog.pojo.BlogCondition")
     @GetMapping("/listBlogPage")
-    public String loadBlogListPage() {
-
+    public String loadBlogListPage(BlogCondition blogCondition, Model model) {
+        if (blogCondition.getPageSize() == 0) blogCondition.setPageSize(15);
+        PageInfo<BlogVO> blogByCondition = blogService.getBlogByCondition(blogCondition);
+        model.addAttribute("blogs", blogByCondition);
         return "admin/listBlog";
     }
 

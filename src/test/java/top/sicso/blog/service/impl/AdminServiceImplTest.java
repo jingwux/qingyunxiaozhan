@@ -7,7 +7,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import top.sicso.blog.InitTest;
 import top.sicso.blog.pojo.Admin;
-import top.sicso.blog.service.AdminService;
+import top.sicso.blog.admin.service.AdminService;
 
 import static org.junit.Assert.*;
 
