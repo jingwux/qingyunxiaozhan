@@ -30,18 +30,23 @@
                     <table class="table table-bordered table-hover">
                         <thead>
                         <tr>
-                            <th>Blog<i class="fa fa-sort"></i></th>
-                            <th>Tags<i class="fa fa-sort"></i></th>
-                            <th>Operation<i class="fa fa-sort"></i></th>
+                            <th>序号<i class="fa"></i></th>
+                            <th>标题<i class="fa"></i></th>
+                            <th>标签<i class="fa "></i></th>
+                            <th>日期<i class="fa fa-sort"></i></th>
+                            <th>操作<i class="fa "></i></th>
                         </tr>
                         </thead>
-                        <tbody th:each="blog : ${blogs.list}">
+                        <tbody th:each="blog,blogStat : ${blogs.getContent()}">
                         <tr>
                             <!--#liClass($velocityCount)-->
+                            <td th:text="${blogStat.index + 1}"></td>
                             <td th:text="${blog.title}"></td>
                             <td th:text="${blog.tags}"></td>
+                            <td th:text="${blog.date}"></td>
                             <td>
-                                <a th:href="@{'/admin/update/' + ${blog.id}}"><i class="fa fa-pencil"></i></a>
+                                <a th:href="@{'/admin/blog/' + ${blog.id}}"><i class="fa fa-pencil"></i></a>
+                                &emsp;
                                 <a class="delete" role="button" th:href="@{'/admin/delete/' + ${blog.id}}"
                                    data-title="Delete this blog!" data-confirm-button="Yes">
                                     <i class="fa fa-trash-o"></i>
@@ -50,28 +55,36 @@
                         </tr>
                         </tbody>
                     </table>
-                    <nav aria-label="Page navigation">
-                        <ul class="pagination">
-                            <li>
-                                <a href="#" aria-label="Previous">
-                                    <span aria-hidden="true">&laquo;</span>
+                    <nav aria-label="...">
+                        <ul class="pager">
+
+                            <li th:if="${blogs.hasPrevious()}" class="previous">
+                                <a th:href="@{'/admin/listBlog?pageIndex=' + ${blogs.getNumber() - 1}  + '&pageSize=' + ${blogs.getSize()}}">
+                                    <span aria-hidden="true">&larr;</span> 上一页
                                 </a>
                             </li>
-                            <li><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li>
-                                <a href="#" aria-label="Next">
-                                    <span aria-hidden="true">&raquo;</span>
+                            <li th:unless="${blogs.hasPrevious()}" class="previous disabled">
+                                <a href="#">
+                                    <span aria-hidden="true">&larr;</span> 上一页
                                 </a>
                             </li>
+
+                            <li th:if="${blogs.hasNext()}" class="next">
+                                <a th:href="@{'/admin/listBlog?pageIndex=' + ${blogs.getNumber() + 1} } + '&pageSize=' + ${blogs.getSize()}">
+                                    下一页<span aria-hidden="true">&rarr;</span>
+                                </a>
+                            </li>
+                            <li th:unless="${blogs.hasNext()}" class="next disabled">
+                                <a href="#">
+                                    下一页<span aria-hidden="true">&rarr;</span>
+                                </a>
+                            </li>
+
                         </ul>
                     </nav>
                 </div>
             </div>
-        </div><!-- /.row -->
+        </div>
     </div><!-- /#page-wrapper -->
 
 </div><!-- /#wrapper -->
