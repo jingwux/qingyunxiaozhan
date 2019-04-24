@@ -3,7 +3,8 @@ package top.sicso.blog.pojo;
 import lombok.*;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.Date;
+import java.util.Objects;
 
 /**
  * 博客页面的存储，包括id,日期，标题和博客页面

@@ -1,6 +1,7 @@
 package top.sicso.blog.service;
 
 import com.github.pagehelper.PageInfo;
+import org.springframework.data.domain.Page;
 import top.sicso.blog.pojo.Blog;
 import top.sicso.blog.pojo.Tag;
 import top.sicso.blog.vo.ArchiveVO;
@@ -18,7 +19,7 @@ public interface BlogService{
 
     PageInfo<BlogVO> getBlogByTagName(String tagName);
 
-    PageInfo<BlogVO> getBlogByCondition(BlogCondition blogCondition);
+    Page<BlogVO> getBlogByCondition(BlogCondition blogCondition);
 
     Blog addBlog(Blog blog);
 

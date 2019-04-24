@@ -5,6 +5,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
@@ -77,7 +79,7 @@ public class BlogServiceImpl implements BlogService {
     }
 
     @Override
-    public PageInfo<BlogVO> getBlogByCondition(BlogCondition blogCondition) {
+    public Page<BlogVO> getBlogByCondition(BlogCondition blogCondition) {
 
         Sort sort;
         if (StringUtils.isNotBlank(blogCondition.getSort()) && StringUtils.isNotBlank(blogCondition.getOrder())) {
@@ -87,7 +89,6 @@ public class BlogServiceImpl implements BlogService {
         }
 
         PageRequest pageRequest = PageRequest.of(blogCondition.getPageIndex(), blogCondition.getPageSize(), sort);
-
         // 动态SQL
         Specification<Blog> specification = (Specification<Blog>) (root, query, criteriaBuilder) -> {
             List<Predicate> predicates = new ArrayList<>();
@@ -107,13 +108,16 @@ public class BlogServiceImpl implements BlogService {
         };
 
         List<BlogVO> blogVOList = new ArrayList<>();
-        List<Blog> blogs = blogRepository.findAll(specification, pageRequest).getContent();
+        Page<Blog> page = blogRepository.findAll(specification, pageRequest);
+
+        List<Blog> blogs = page.getContent();
         blogs.forEach(p -> {
             BlogVO blogVO = new BlogVO();
             BeanUtils.copyProperties(p, blogVO);
             blogVOList.add(blogVO);
         });
-        return new PageInfo<>(blogVOList);
+
+        return new PageImpl<>(blogVOList,pageRequest,page.getTotalElements());
     }
 
     @Override
@@ -137,6 +141,10 @@ public class BlogServiceImpl implements BlogService {
         return tagRepository.findByBlogId(blogId);
     }
 
+
+    private long getBlogsCount(){
+        return blogRepository.count();
+    }
 
     private BlogVO blogWrap(Blog blog) {
         BlogVO blogVO = new BlogVO();

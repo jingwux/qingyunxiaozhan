@@ -5,6 +5,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,21 +35,6 @@ public class AdminController {
         return "admin/index";
     }
 
-    @ApiOperation(value = "加载发布博客页面", notes = "加载发布博客页面")
-    @GetMapping("/addBlogPage")
-    public String loadAddBlogPage() {
-        return "admin/addBlog";
-    }
-
-    @ApiOperation(value = "加载博客列表页面", notes = "加载发布博客页面")
-    @ApiImplicitParam(name = "博客列表", value = "博客列表", required = false, paramType = "query", dataType = "top.sicso.blog.pojo.BlogCondition")
-    @GetMapping("/listBlogPage")
-    public String loadBlogListPage(BlogCondition blogCondition, Model model) {
-        if (blogCondition.getPageSize() == 0) blogCondition.setPageSize(15);
-        PageInfo<BlogVO> blogByCondition = blogService.getBlogByCondition(blogCondition);
-        model.addAttribute("blogs", blogByCondition);
-        return "admin/listBlog";
-    }
 
     @ApiOperation(value = "加载项目页面", notes = "加载发布博客页面")
     @GetMapping("/projectPage")
@@ -56,12 +42,6 @@ public class AdminController {
         return "admin/project";
     }
 
-    @ApiOperation(value = "添加博客")
-    @ApiImplicitParam(name = "博客内容", value = "博客相关", required = true, paramType = "query", dataType = "top.sicso.blog.pojo.Blog")
-    @PostMapping("/addBlog")
-    public String addBlog(Blog blog) {
-//        blogService.addBlog(blog);
-        return "redirect:/admin/listBlogPage";
-    }
+
 
 }

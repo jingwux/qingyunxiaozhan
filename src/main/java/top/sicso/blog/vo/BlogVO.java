@@ -5,7 +5,7 @@ import lombok.ToString;
 import top.sicso.blog.pojo.Blog;
 
 import javax.persistence.Transient;
-import java.sql.Date;
+import java.util.Date;
 
 @Data
 @ToString
