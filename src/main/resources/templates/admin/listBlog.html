@@ -70,7 +70,7 @@
                             </li>
 
                             <li th:if="${blogs.hasNext()}" class="next">
-                                <a th:href="@{'/admin/listBlog?pageIndex=' + ${blogs.getNumber() + 1} } + '&pageSize=' + ${blogs.getSize()}">
+                                <a th:href="@{'/admin/listBlog?pageIndex=' + ${blogs.getNumber() + 1}  + '&pageSize=' + ${blogs.getSize()} }">
                                     下一页<span aria-hidden="true">&rarr;</span>
                                 </a>
                             </li>
