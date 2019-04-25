@@ -23,16 +23,17 @@ public class ProjectController {
     @GetMapping("/projects")
     public String loadProjectPage(Model model) {
         model.addAttribute("title", "项目列表");
+        model.addAttribute("projects", projectService.getProject());
         return "projects";
     }
 
 
     @ApiOperation(value = "根据项目名查找项目")
-    @ApiImplicitParam(name = "projectName", value = "项目名", required = false, dataType = "String", paramType = "path")
+    @ApiImplicitParam(name = "projectName", value = "项目名", dataType = "String", paramType = "path")
     @GetMapping("/projects/{projectName}")
     public String listProjects(@PathVariable String projectName, Model model) {
         model.addAttribute("title", projectName);
-//        model.addAttribute("projecs", projectService.findAll());
+        model.addAttribute("projects", projectService.getProject());
         return "projects";
     }
 

@@ -15,36 +15,28 @@
     <div class="row">
         <div class="col-lg-12 post">
             <div class="editormd-preview" id="md-container">
-                <div class="markdown-body editormd-preview-container" previewcontainer="true" style="padding: 20px;">
-                    #foreach($item in ${projects})
+                <div class="markdown-body editormd-preview-container" previewcontainer="true" style="padding: 20px;" th:each="project : ${projects}">
                     <h2>
                         <a class="reference-link"></a>
                         <span class="header-link octicon octicon-link"></span>
-                        <a href="$!{item.Url}" title="qyxz">$!{item.Name}</a></h2>
+                        <a th:href="${project.url}" title="" th:text="${project.name}" target="_blank"></a></h2>
                     <ul>
                         <li>
-                            <strong>Date&nbsp;:&nbsp;</strong>$!{item.Date}</li>
+                            <strong>更新时间&nbsp;:&nbsp;</strong><span th:text="${project.date}"></span></li>
                         <li>
-                            <strong>Technology&nbsp;:&nbsp;</strong>$!{item.Tech}</li>
+                            <strong>技术类型&nbsp;:&nbsp;</strong><span th:text="${project.tech}"></span></li>
                         <li>
-                            <strong>Discription&nbsp;:</strong>
                             <blockquote>
-                                <p>$!{item.Desp}</p>
+                                <p><span th:text="${project.description}"></span></p>
                             </blockquote>
                         </li>
                     </ul>
                     <br><br>
-                    #end
                 </div>
             </div>
-            #set($href = "/projects")
-            #frontFlip($pageNum $current $href)
         </div>
     </div>
 </div>
-
-
-
 <div th:replace="~{module/footer :: footer}"></div>
 </body>
 </html>
