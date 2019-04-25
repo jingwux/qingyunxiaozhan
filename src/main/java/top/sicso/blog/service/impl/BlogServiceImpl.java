@@ -16,6 +16,7 @@ import top.sicso.blog.pojo.Tag;
 import top.sicso.blog.repository.BlogRepository;
 import top.sicso.blog.repository.TagRepository;
 import top.sicso.blog.service.BlogService;
+import top.sicso.blog.utils.SortUtil;
 import top.sicso.blog.vo.ArchiveVO;
 import top.sicso.blog.vo.BlogCondition;
 import top.sicso.blog.vo.BlogVO;
@@ -81,12 +82,7 @@ public class BlogServiceImpl implements BlogService {
     @Override
     public Page<BlogVO> getBlogByCondition(BlogCondition blogCondition) {
 
-        Sort sort;
-        if (StringUtils.isNotBlank(blogCondition.getSort()) && StringUtils.isNotBlank(blogCondition.getOrder())) {
-            sort = new Sort(Sort.Direction.valueOf(blogCondition.getSort()), blogCondition.getOrder());
-        } else {
-            sort = Sort.unsorted();
-        }
+        Sort sort = SortUtil.createSort(blogCondition);
 
         PageRequest pageRequest = PageRequest.of(blogCondition.getPageIndex(), blogCondition.getPageSize(), sort);
         // 动态SQL

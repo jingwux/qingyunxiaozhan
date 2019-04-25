@@ -9,7 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import top.sicso.blog.service.ProjectsService;
+import top.sicso.blog.service.ProjectService;
 
 @Api(tags = "项目显示模块")
 @Controller
@@ -17,7 +17,7 @@ import top.sicso.blog.service.ProjectsService;
 public class ProjectController {
 
     @Autowired
-    private ProjectsService projectsService;
+    private ProjectService projectService;
 
     @ApiOperation(value = "加载项目列表显示页面")
     @GetMapping("/projects")
@@ -32,7 +32,7 @@ public class ProjectController {
     @GetMapping("/projects/{projectName}")
     public String listProjects(@PathVariable String projectName, Model model) {
         model.addAttribute("title", projectName);
-//        model.addAttribute("projecs", projectsService.findAll());
+//        model.addAttribute("projecs", projectService.findAll());
         return "projects";
     }
 
