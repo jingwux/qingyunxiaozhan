@@ -19,6 +19,10 @@ public class ResourceVO {
 
     private String filepath;
 
+
+    /**
+     * 0 有效 ，1 无效
+     */
     private Integer status;
 
     enum ResourceTypeEnum {

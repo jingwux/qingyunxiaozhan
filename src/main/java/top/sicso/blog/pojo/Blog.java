@@ -22,9 +22,17 @@ public class Blog {
 
     private String title;//博客标题，不可为空
 
-    private String article;//博客内容的html文本
-
     private String tags;//标签，不同标签以,隔开
+
+    /**
+     * 0 原创 ，1转载
+     */
+    private Integer original;
+
+    @Column(name = "o_url")
+    private String oUrl;
+
+    private String article;//博客内容的html文本
 
     private String md;//博客内容的markdown文本
 

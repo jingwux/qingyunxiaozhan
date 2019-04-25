@@ -2,8 +2,8 @@ package top.sicso.blog.common;
 
 public enum CommonStatusEnum {
 
-    AVAILABLE(0),
-    DISABLE(1);
+    ZERO(0),
+    ONE(1);
 
     private int resourceStatus;
     private String resourceStatusValue;
