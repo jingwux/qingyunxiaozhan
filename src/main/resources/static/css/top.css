@@ -1,13 +1,31 @@
 #toTop {
     position: fixed;
-    right: 25px;
-    bottom: 25px;
+    right: 40px;
+    bottom: 40px;
     display: block;
     width: 26px;
     height: 62px;
     background: url(../img/rocket.png) no-repeat 0 0;
     -webkit-transition: all 0.2s ease-in-out;
+    z-index: 999;
+
 }
+
+@media (max-width: 767px) {
+    #toTop {
+        position: fixed;
+        right: 15px;
+        bottom: 40px;
+        display: block;
+        width: 26px;
+        height: 62px;
+        background: url(../img/rocket.png) no-repeat 0 0;
+        -webkit-transition: all 0.2s ease-in-out;
+        z-index: 999;
+
+    }
+}
+
 
 #toTop:hover {
     background: url(../img/rocket.png) no-repeat 0 -62px;
