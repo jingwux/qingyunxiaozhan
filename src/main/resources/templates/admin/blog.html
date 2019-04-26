@@ -31,6 +31,7 @@
 
                     <input type="hidden" name="md"/>
                     <input type="hidden" name="article"/>
+                    <input type="hidden" name="date" th:if="${blog != null }" th:value="${blog.date}"/>
                     <input type="submit" class="form-control qyxz-input" id="add-blog" value="save"/>
                 </form>
             </div>
