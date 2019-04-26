@@ -21,12 +21,12 @@
             </div>
             <br><br>
             <span th:if="${prev != null}">
-                <a th:href="@{~'/a/' + ${prev.id}}" class="post-flip">
-                    <i class="fa fa-arrow-left"></i><span th:title="${prev.title}"></span>
+                <a th:href="@{${prev.id}}" class="post-flip">
+                    <i class="fa fa-arrow-left"></i><span th:text="${prev.title}"></span>
                 </a>
             </span>
             <span th:if="${next != null}">
-                <a th:href="@{~'/blog/detail/' + next.id}" class="post-flip" style="float: right;">
+                <a th:href="@{${next.id}}" class="post-flip" style="float: right;">
                     <span th:text="${next.title}"></span><i class="fa fa-arrow-right"></i>
                 </a>
             </span>
