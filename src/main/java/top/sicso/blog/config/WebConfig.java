@@ -27,7 +27,7 @@ public class WebConfig extends WebMvcConfigurationSupport implements Environment
 
     @Override
     protected void addFormatters(FormatterRegistry registry) {
-        registry.addConverter(new Date2LocalDateConverter());
+        registry.addConverter(new StringDate2LocalDateConverter());
     }
 
     @Bean
