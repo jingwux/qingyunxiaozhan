@@ -41,7 +41,7 @@
                         <tr>
                             <!--#liClass($velocityCount)-->
                             <td th:text="${blogStat.index + 1}"></td>
-                            <td th:text="${blog.title}"></td>
+                            <td ><a th:href="@{'/admin/blog/' + ${blog.id}}" th:text="${blog.title}"></a></td>
                             <td th:text="${blog.tags}"></td>
                             <td th:text="${blog.date}"></td>
                             <td>
