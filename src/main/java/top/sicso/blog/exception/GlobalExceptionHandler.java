@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import top.sicso.blog.common.ResultBean;
-import top.sicso.blog.common.ResultCodeEnum;
+import top.sicso.blog.constant.ResultCodeEnum;
 
 /**
  * 全局异常处理类

@@ -4,6 +4,7 @@ import org.springframework.context.EnvironmentAware;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
+import org.springframework.format.FormatterRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 import top.sicso.blog.pojo.SystemSetting;
@@ -21,6 +22,12 @@ public class WebConfig extends WebMvcConfigurationSupport implements Environment
         registry.addResourceHandler("swagger-ui.html").addResourceLocations("classpath:/META-INF/resources/");
         registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
         super.addResourceHandlers(registry);
+    }
+
+
+    @Override
+    protected void addFormatters(FormatterRegistry registry) {
+        registry.addConverter(new Date2LocalDateConverter());
     }
 
     @Bean

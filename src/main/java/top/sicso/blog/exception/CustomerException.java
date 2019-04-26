@@ -1,8 +1,6 @@
 package top.sicso.blog.exception;
 
-import top.sicso.blog.common.ResultCodeEnum;
-
-import java.util.Date;
+import top.sicso.blog.constant.ResultCodeEnum;
 
 public class CustomerException extends RuntimeException {
 

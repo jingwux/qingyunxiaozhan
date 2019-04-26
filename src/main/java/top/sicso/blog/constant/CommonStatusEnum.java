@@ -1,4 +1,4 @@
-package top.sicso.blog.common;
+package top.sicso.blog.constant;
 
 public enum CommonStatusEnum {
 
