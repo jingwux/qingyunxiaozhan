@@ -1,5 +1,6 @@
 package top.sicso.blog.utils;
 
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -30,7 +31,7 @@ public class TimeUtils {
         return Date.from(LocalDate.now().atStartOfDay().atZone(ZONE).toInstant());
     }
 
-   public static LocalDate getCurrentLocalDate() {
+    public static LocalDate getCurrentLocalDate() {
         return LocalDate.now();
     }
 
@@ -44,13 +45,18 @@ public class TimeUtils {
     }
 
 
+    public static LocalDate date2LocalDate(Date date) {
+        Instant instant = date.toInstant();
+        LocalDateTime localDateTime = LocalDateTime.ofInstant(instant, ZONE);
+        return localDateTime.toLocalDate();
+    }
+
     /**
      * 将日期对象格式化为 yyyy-MM-dd
      *
      * @return
      */
     public static Date formatDate(Date date) {
-
         return null;
     }
 
