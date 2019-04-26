@@ -1,10 +1,9 @@
 package top.sicso.blog.pojo;
 
-import lombok.*;
+import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.Objects;
 
 /**
  * 博客页面的存储，包括id,日期，标题和博客页面
@@ -18,6 +17,7 @@ public class Blog {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;//id
 
+    @Temporal(TemporalType.DATE)
     private Date date;//博客创建日期
 
     private String title;//博客标题，不可为空

@@ -4,7 +4,6 @@ import lombok.Data;
 import lombok.ToString;
 import top.sicso.blog.pojo.Blog;
 
-import javax.persistence.Transient;
 import java.util.Date;
 
 @Data

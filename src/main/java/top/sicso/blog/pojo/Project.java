@@ -1,9 +1,8 @@
 package top.sicso.blog.pojo;
 
-import lombok.*;
+import lombok.Data;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
 import java.util.Date;
 
 /**
@@ -27,6 +26,6 @@ public class Project {
 
     private String description;//项目描述
 
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
     private Date date;//项目创建时间
 }
