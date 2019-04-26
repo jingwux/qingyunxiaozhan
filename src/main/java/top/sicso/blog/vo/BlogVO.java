@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.ToString;
 import top.sicso.blog.pojo.Blog;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Data
@@ -12,7 +13,7 @@ public class BlogVO {
 
     private Integer id;//id
 
-    private Date date;//博客创建日期
+    private LocalDate date;//博客创建日期
 
     private String title;//博客标题，不可为空
 

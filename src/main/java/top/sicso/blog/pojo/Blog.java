@@ -3,6 +3,7 @@ package top.sicso.blog.pojo;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 /**
@@ -17,8 +18,8 @@ public class Blog {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;//id
 
-    @Temporal(TemporalType.DATE)
-    private Date date;//博客创建日期
+//    @Temporal(TemporalType.DATE)
+    private LocalDate date;//博客创建日期
 
     private String title;//博客标题，不可为空
 

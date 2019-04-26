@@ -12,6 +12,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import top.sicso.blog.pojo.Blog;
 import top.sicso.blog.service.BlogService;
 import top.sicso.blog.utils.ObjectUtils;
+import top.sicso.blog.utils.TimeUtils;
 import top.sicso.blog.vo.BlogCondition;
 
 
@@ -39,11 +40,12 @@ public class BlogManageController {
     }
 
 
-    @ApiOperation(value = "添加博客")
+    @ApiOperation(value = "添加或者更新博客")
     @ApiImplicitParam(name = "博客内容", value = "博客相关", required = true, paramType = "query", dataType = "top.sicso.blog.pojo.Blog")
     @PostMapping("/addBlog")
     public String addBlog(Blog blog, RedirectAttributes redirectAttributes) {
         if (ObjectUtils.isNotBlank(blog)) {
+            if (blog.getDate() == null) blog.setDate(TimeUtils.getCurrentLocalDate());
             blogService.addBlog(blog);
             return "redirect:/admin/listBlog";
         }
@@ -52,6 +54,8 @@ public class BlogManageController {
 
     }
 
+    @ApiOperation(value = "根据博客id查询并显示博客")
+    @ApiImplicitParam(name = "博客id", value = "id", required = true, paramType = "path", dataType = "Integer")
     @GetMapping("/blog/{blogId}")
     public String loadBlogByBlogId(@PathVariable Integer blogId, Model model) {
         model.addAttribute("blog", blogService.getBlogByBlogId(blogId));
