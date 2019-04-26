@@ -10,8 +10,6 @@ public class ObjectUtilsTest {
     @Test
     public void isNotBlank() {
         BlogVO blogVO = new BlogVO();
-//        blogVO.setArticle("");
-        blogVO.setDate(new Date());
         boolean notBlank = ObjectUtils.isNotBlank(blogVO);
 
     }
