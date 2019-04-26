@@ -14,7 +14,7 @@ import java.util.Date;
 public class Blog {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;//id
 
     @Temporal(TemporalType.DATE)
