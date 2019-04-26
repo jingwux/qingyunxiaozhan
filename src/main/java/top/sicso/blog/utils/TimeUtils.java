@@ -51,6 +51,11 @@ public class TimeUtils {
         return localDateTime.toLocalDate();
     }
 
+
+    public static LocalDate stringDate2LocalDate(String date){
+        return LocalDate.parse(date,DateTimeFormatter.ISO_DATE);
+    }
+
     /**
      * 将日期对象格式化为 yyyy-MM-dd
      *

@@ -10,13 +10,18 @@ public class TimeUtilsTest {
 
     @Test
     public void getCurrentDate() {
-        Date currentDate = TimeUtils.getCurrentDate();
+        TimeUtils.getCurrentDate();
 
     }
 
     @Test
     public void getCurrentDateTime() {
-        Date currentDate = TimeUtils.getCurrentDateTime();
+       TimeUtils.getCurrentDateTime();
+
+    }
+    @Test
+    public void stringDate2LocalDate() {
+        TimeUtils.stringDate2LocalDate("2018-09-10");
 
     }
 }
