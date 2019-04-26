@@ -13,7 +13,7 @@
 
     <!-- Add custom CSS here -->
     <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css" rel="stylesheet">
-    <link href="/css/sb-admin.min.css" rel="stylesheet">
+    <link href="/css/admin.css" rel="stylesheet">
     <link href="/css/editormd.min.css" rel="stylesheet"/>
     <link href="/css/bootstrap-tagsinput.min.css" rel="stylesheet">
     <link href="//cdn.bootcss.com/morris.js/0.4.3/morris.css" rel="stylesheet">
