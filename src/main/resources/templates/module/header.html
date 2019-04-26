@@ -10,6 +10,7 @@
     <link th:href="@{~/static/css/landing-page.min.css}" href="/static/css/landing-page.min.css" rel="stylesheet" type="text/css"
           id="theme-css"/>
     <link th:href="@{~/static/css/qyxz-md.min.css}" href="/static/css/qyxz-md.min.css" rel="stylesheet" type="text/css"/>
+    <link th:href="@{~/static/css/top.css}" href="/static/css/top.css" rel="stylesheet" type="text/css"/>
     <link href="http://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
 <script type="text/javascript">
@@ -108,7 +109,16 @@
         </div>
     </div>
     <a href="#content" id="blog_content"></a>
-
+    <span id="toTop" class="toTop"></span>
+    <script type="text/javascript" th:src="@{~/static/js/top.js}" src="/static/js/top.js"></script>
+    <script>
+        // ie7 下传入元素 ie8 及以上可以传入选择符字符串
+        var topElement = document.getElementById("toTop");
+        var toTop = new ScrollToTop(topElement, {
+            showWhen: 200,
+            speed: 50
+        })
+    </script>
 </div>
 
 </body>
