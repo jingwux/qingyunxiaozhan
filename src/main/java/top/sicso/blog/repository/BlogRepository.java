@@ -16,7 +16,7 @@ import java.util.List;
 @Repository
 public interface BlogRepository extends JpaRepository<Blog, Integer>, JpaSpecificationExecutor<Blog> {
 
-    @Query(value = "SELECT DATE_FORMAT(date,'%Y-%m') as date  from tb_blog GROUP BY date ORDER BY date DESC LIMIT :size, 12 ", nativeQuery = true)
+    @Query(value = "SELECT DATE_FORMAT(date,'%Y-%m') as date  from tb_blog GROUP BY DATE_FORMAT(date,'%Y-%m') ORDER BY date DESC LIMIT :size, 12 ", nativeQuery = true)
     List<String> findGroupByDate(@Param("size") int size);
 
     @Query(value = "SELECT * from tb_blog WHERE DATE_FORMAT(date,'%Y-%m') = :date", nativeQuery = true)

@@ -1,11 +1,13 @@
 package top.sicso.blog.vo;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import top.sicso.blog.common.BaseCondition;
 
 import java.sql.Date;
 
 @Data
+@EqualsAndHashCode(callSuper = false)
 public class BlogCondition extends BaseCondition {
 
     private Integer id;//id
