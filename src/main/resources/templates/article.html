@@ -8,6 +8,24 @@
     <title th:text="${title}">Document</title>
 
 </head>
+<style>
+
+    @media (min-width: 768px) {
+        .blog-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+    @media (max-width: 767px) {
+        .blog-nav {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+</style>
 <body>
 <nav th:replace="~{module/header :: nav}"></nav>
 
@@ -20,16 +38,18 @@
                 </div>
             </div>
             <br><br>
-            <span th:if="${prev != null}">
+            <div class="blog-nav">
+                <span th:if="${prev != null}">
                 <a th:href="@{${prev.id}}" class="post-flip">
                     <i class="fa fa-arrow-left"></i><span th:text="${prev.title}"></span>
                 </a>
             </span>
-            <span th:if="${next != null}">
+                <span th:if="${next != null}">
                 <a th:href="@{${next.id}}" class="post-flip" style="float: right;">
                     <span th:text="${next.title}"></span><i class="fa fa-arrow-right"></i>
                 </a>
             </span>
+            </div>
         </div>
     </div>
 </div>
@@ -37,4 +57,10 @@
 
 <div th:replace="~{module/footer :: footer}"></div>
 </body>
+
+<script>
+    $(function () {
+        $('.intro-header').css('background-image','url("../../static/img/intro-article.jpg")')
+    })
+</script>
 </html>
