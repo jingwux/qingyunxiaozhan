@@ -32,5 +32,6 @@ public interface BlogRepository extends JpaRepository<Blog, Integer>, JpaSpecifi
     @Query(value = "select *  from tb_blog where id > :blogId limit 1", nativeQuery = true)
     Blog findNextBlog(@Param("blogId") Integer blogId);
 
+    void deleteById(Integer id);
 
 }

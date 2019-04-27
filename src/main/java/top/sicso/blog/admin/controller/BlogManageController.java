@@ -4,6 +4,7 @@ package top.sicso.blog.admin.controller;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -50,6 +51,19 @@ public class BlogManageController {
             return "redirect:/admin/listBlog";
         }
         redirectAttributes.addFlashAttribute("message", "编辑博客");
+        return "admin/blog";
+
+    }
+
+    @ApiOperation(value = "删除博客")
+    @ApiImplicitParam(name = "博客id", value = "id", required = true, paramType = "path", dataType = "Integer")
+    @DeleteMapping("/deleteBlog/{blogId}")
+    public String deleteBlog(RedirectAttributes redirectAttributes, @PathVariable Integer blogId) {
+        if (blogId != null) {
+            blogService.deleteBlog(blogId);
+            return "redirect:/admin/listBlog";
+        }
+        redirectAttributes.addFlashAttribute("message", "博客Id不能为空");
         return "admin/blog";
 
     }

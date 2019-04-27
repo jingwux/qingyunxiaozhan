@@ -122,6 +122,11 @@ public class BlogServiceImpl implements BlogService {
     }
 
     @Override
+    public void deleteBlog(Integer blogId) {
+        blogRepository.deleteById(blogId);
+    }
+
+    @Override
     public Tag getTagByTagName(String tagName) {
         return tagRepository.findByTagName(tagName);
     }
