@@ -39,7 +39,8 @@ public class MockTest {
                                      .andReturn();
 
         mvcResult.getModelAndView();
-        mvcResult.getResponse().getContentAsString();
+        String string = mvcResult.getResponse().getContentAsString();
+        System.out.println(string);
     }
 
 }
