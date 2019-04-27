@@ -46,11 +46,12 @@
                             <td th:text="${blog.date}"></td>
                             <td>
                                 <a th:href="@{'/admin/blog/' + ${blog.id}}"><i class="fa fa-pencil"></i></a>
-                                &emsp;
-                                <a class="delete" role="button" th:href="@{'/admin/delete/' + ${blog.id}}"
-                                   data-title="Delete this blog!" data-confirm-button="Yes">
+
+                                <span class="delete" data-title="删除博客!" data-confirm-button="确定"><i class="fa fa-trash-o"></i></span>&emsp;
+                                <!--<a class="delete" role="button" th:href="@{'/admin/deleteBlog/' + ${blog.id}}"
+                                   data-title="删除博客!" data-confirm-button="Yes">
                                     <i class="fa fa-trash-o"></i>
-                                </a>
+                                </a>-->
                             </td>
                         </tr>
                         </tbody>

@@ -60,7 +60,7 @@ public class BlogManageController {
     @DeleteMapping("/deleteBlog/{blogId}")
     public String deleteBlog(RedirectAttributes redirectAttributes, @PathVariable Integer blogId) {
         if (blogId != null) {
-            blogService.deleteBlog(blogId);
+//            blogService.deleteBlog(blogId);
             return "redirect:/admin/listBlog";
         }
         redirectAttributes.addFlashAttribute("message", "博客Id不能为空");
