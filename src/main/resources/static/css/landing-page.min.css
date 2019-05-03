@@ -322,6 +322,13 @@ a:active {
     top: 6px
 }
 
+ul.project{
+    list-style: none;
+}
+ul.project a:hover{
+    background: none;
+}
+
 .post-flip {
     font-size: 20px
 }
