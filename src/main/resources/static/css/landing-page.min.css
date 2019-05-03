@@ -102,7 +102,7 @@ h1, h2, h3, h4, h5, h6 {
     padding-bottom: 80px;
     text-align: center;
     color: #f8f8f8;
-    background: url(../img/intro-bg.jpg) no-repeat center center;
+    /*background: url(../img/intro-bg.jpg) no-repeat center center;*/
     background-size: cover
 }
 
@@ -270,6 +270,7 @@ a:active {
     color: #6b4226
 }
 
+/*  归档 */
 .archive {
     margin: 3em auto;
     font-size: 16px;
@@ -322,12 +323,59 @@ a:active {
     top: 6px
 }
 
+/*  项目 */
+@media (min-width: 768px) {
+    .project-title {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        border-bottom: 1px solid #eee;
+    }
+
+    .note{
+        text-align: right;
+        font-size: 1em;
+    }
+}
+@media (max-width: 767px) {
+    .project-title {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: baseline;
+        border-bottom: 1px solid #eee;
+    }
+
+    .tech{
+        padding-left: 30px;
+        word-break: break-all;
+    }
+
+    .note{
+        text-align: right;
+        font-size: 0.5em;
+    }
+
+}
+
+
+div.project-title h2{
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
 ul.project{
     list-style: none;
 }
+
+ul.project li{
+    margin: 10px;
+}
+
 ul.project a:hover{
     background: none;
 }
+
 
 .post-flip {
     font-size: 20px

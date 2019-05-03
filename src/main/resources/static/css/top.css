@@ -11,22 +11,30 @@
 
 }
 
+#toTop:hover {
+    background: url(../img/rocket.png) no-repeat 0 -62px;
+}
+
 @media (max-width: 767px) {
     #toTop {
         position: fixed;
         right: 15px;
         bottom: 40px;
         display: block;
-        width: 26px;
-        height: 62px;
+        width: 20px;
+        height: 48px;
         background: url(../img/rocket.png) no-repeat 0 0;
+        background-size: cover;
         -webkit-transition: all 0.2s ease-in-out;
         z-index: 999;
 
     }
+
+    #toTop:hover{
+        width: 20px;
+        height: 48px;
+        background: url(../img/rocket.png) no-repeat 0 -47px;
+        background-size: cover;
+    }
 }
 
-
-#toTop:hover {
-    background: url(../img/rocket.png) no-repeat 0 -62px;
-}

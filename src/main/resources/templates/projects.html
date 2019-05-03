@@ -15,30 +15,28 @@
     <div class="row">
         <div class="col-lg-12 post">
             <div class="editormd-preview" id="md-container">
-                <div class="markdown-body editormd-preview-container" previewcontainer="true" style="padding: 20px;"
+                <div class="markdown-body editormd-preview-container" previewcontainer="true" style="padding: 10px 20px"
                      th:each="project : ${projects}">
-                    <h2>
-                        <a class="reference-link"></a>
-                        <span class="header-link octicon octicon-link"></span>
-                        <a th:href="${project.url}" title="" th:text="${project.name}" target="_blank"></a></h2>
+                   <div class="project-title">
+                       <h2>
+                           <a class="reference-link"></a>
+                           <span class="header-link octicon octicon-link"></span>
+                           <a th:href="${project.url}" title="" th:text="${project.name}" target="_blank"></a>
+                       </h2>
+                       <div class="tech">
+                           <span th:text="${project.tech}"></span>
+                       </div>
+                   </div>
                     <ul class="project">
-                        <li>
-                            <strong>更新时间&nbsp;:&nbsp;</strong><span th:text="${project.date}"></span>
-                        </li>
-                        <li>
-                            <strong>技术类型&nbsp;:&nbsp;</strong><span th:text="${project.tech}"></span>
-                        </li>
-                        <li>
-                            <strong><span>传送门 <i class="fa fa-unlink fa-x"></i></span>&nbsp;:&nbsp;</strong>
-                            <a th:href="${project.url}" th:text="${project.url}" target="_blank"></a>
-                        </li>
                         <li>
                             <blockquote>
                                 <p><span th:text="${project.description}"></span></p>
                             </blockquote>
+                            <div class="note">
+                                <strong>更新时间&nbsp;:&nbsp;</strong><span th:text="${project.date}"></span>
+                            </div>
                         </li>
                     </ul>
-                    <br><br>
                 </div>
             </div>
         </div>
