@@ -12,57 +12,72 @@
           id="theme-css"/>
     <link th:href="@{~/static/css/qyxz-md.min.css}" href="/static/css/qyxz-md.min.css" rel="stylesheet"/>
     <link href="http://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css" rel="stylesheet"/>
+    <style>
+        footer {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .error-container {
+            position: relative;
+            top: 30%;
+        }
+
+        .error-container-500 {
+            position: absolute;
+            right: 10%;
+        }
+    </style>
 </head>
 <body>
-<div th:fragment="nav">
-    <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
-        <div class="container topnav">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                        data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand topnav" href="/">首页</a>
-            </div>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right myBar">
-                    <li>
-                        <a href="/archives/1">归档</a>
-                    </li>
-                    <li>
-                        <a href="/tags">标签</a>
-                    </li>
-                    <li>
-                        <a href="/projects/">项目</a>
-                    </li>
-                    <li>
-                        <a href="/about">资源</a>
-                    </li>
-                    <li>
-                        <a href="/admin/">Admin</a>
-                    </li>
-                    <li>
-                        <a href='javascript:void(0)' onclick="day_night()"><i class="fa fa-moon-o" id="day-night"></i>
-                            <span class="network-name" id="day-night-name">夜</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
+<nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+    <div class="container topnav">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand topnav" href="/">首页</a>
         </div>
-    </nav>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right myBar">
+                <li>
+                    <a href="/archives/1">归档</a>
+                </li>
+                <li>
+                    <a href="/tags">标签</a>
+                </li>
+                <li>
+                    <a href="/projects/">项目</a>
+                </li>
+                <li>
+                    <a href="/about">资源</a>
+                </li>
+                <li>
+                    <a href="/admin/">Admin</a>
+                </li>
+                <!--<li>
+                    <a href='javascript:void(0)' onclick="day_night()"><i class="fa fa-moon-o" id="day-night"></i>
+                        <span class="network-name" id="day-night-name">夜</span>
+                    </a>
+                </li>-->
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container error-container">
+    <div class="error-container-500">
+        <h1>未知错误 T_T</h1>
+        <p>出现黑洞，请联系管理员。。。。</p>
+        <br/>
+        <p><span th:text="${errorMsg == null ? '' : errorMsg}"></span></p>
+    </div>
 </div>
-
-<div class="container" style="min-height: 50%;">
-    <h1>未知错误</h1>
-    <p>出现黑洞，请联系管理员。。。。</p>
-    <br/>
-    <p>error message: <span th:text="${errorMsg == null ? '' : errorMsg}"></span></p>
-</div>
-
-<div th:replace="~{module/footer :: footer}"></div>
 
 </body>
 </html>
