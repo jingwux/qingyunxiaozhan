@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="module/admin-header :: header">
+    <meta charset="UTF-8"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title th:title="${title}">Document</title>
+
+</head>
+<body>
+`
+<div id="wrapper">
+    <nav th:replace="~{module/admin-header :: meun}"></nav>
+
+    <div id="page-wrapper">
+        <div class="row">
+            <div class="col-md-10 column">
+                <form role="form" class="form-inline" name="blogForm">
+                    <input type="text" id="blogTitle" class="form-control" name="title" placeholder="请输入博客标题"
+                           th:unless="${blog != null }" style="width: 333px;"/>
+                    <input type="text" id="blogTags" name="tags" placeholder="输入标签"
+                           th:unless="${blog != null }" data-role="tagsinput"/>
+
+
+                    <input type="hidden" name="id" th:value="${blog.id}"/>
+                    <input type="hidden" name="md"/>
+                    <input type="hidden" name="article"/>
+                    <input type="hidden" name="date" th:if="${blog != null }" th:value="${blog.date}"/>
+                    <input type="submit" class="form-control qyxz-input" id="add-blog" value="save"/>
+                </form>
+            </div>
+            <!-- <div class="col-md-6 column">
+                 <div class="styled-select form-inlin">
+                     <select id="editormd-theme-select" class="form-control">
+                         <option disabled="disabled">select Editor.md themes</option>
+                     </select>
+                     <select id="editor-area-theme-select" class="form-control">
+                         <option disabled="disabled">select editor area themes</option>
+                     </select>
+                     <select id="preview-area-theme-select" class="form-control">
+                         <option disabled="disabled">select preview area themes</option>
+                     </select>
+                 </div>
+             </div>-->
+        </div><!-- /.row -->
+    </div>
+
+    <div id="page-wrapper">
+        <div class="row">
+            <div class="col-md-12 column">
+                <div id="markdown-editor">
+                    <textarea th:if="${blog != null }" style="   display:none;" th:text="${blog.md == null ? '' : blog.md }" ></textarea>
+                </div>
+            </div>
+        </div><!-- /.row -->
+    </div><!-- /#page-wrapper -->
+</div><!-- /#wrapper -->
+
+
+<!-- JavaScript -->
+<script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script th:href="@{~/static/css/editormd.min.js}" src="/static/js/editormd.min.js"></script>
+<script th:href="@{~/static/css/bootstrap-tagsinput.min.js}" src="/static/js/bootstrap-tagsinput.min.js"></script>
+<script th:href="@{~/static/js/qyxz-md-form.min.js}" src="/static/js/qyxz-md-form.min.js"></script>
+<script>
+    $(function () {
+
+    })
+</script>
+</body>
+</html>
