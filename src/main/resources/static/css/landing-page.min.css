@@ -335,7 +335,7 @@ a:active {
     .note{
         text-align: right;
         font-size: 1em;
-        color: #bcdad4ba;
+        color: #a98f83ba;
     }
 }
 @media (max-width: 767px) {
@@ -355,7 +355,7 @@ a:active {
     .note{
         text-align: right;
         font-size: 0.5em;
-        color: #bcdad4ba;
+        color: #a98f83ba;
 
     }
 
