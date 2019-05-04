@@ -23,6 +23,8 @@ public interface BlogService{
 
     Blog addBlog(Blog blog);
 
+    Blog updateBlog(Blog blog);
+
     void deleteBlog(Integer blogId);
 
 

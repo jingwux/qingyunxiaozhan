@@ -122,6 +122,11 @@ public class BlogServiceImpl implements BlogService {
     }
 
     @Override
+    public Blog updateBlog(Blog blog) {
+        return blogRepository.saveAndFlush(blog);
+    }
+
+    @Override
     public void deleteBlog(Integer blogId) {
         blogRepository.deleteById(blogId);
     }
