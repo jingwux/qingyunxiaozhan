@@ -395,7 +395,7 @@
 }
 
 .editormd-container-mask, .editormd-dialog-mask-con {
-    background: url(../static/img/loading.gif) center center no-repeat;
+    background: url(../img/loading.gif) center center no-repeat;
     -webkit-background-size: 32px 32px;
     -moz-background-size: 32px 32px;
     -o-background-size: 32px 32px;

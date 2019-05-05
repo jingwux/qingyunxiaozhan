@@ -18,20 +18,11 @@
             <div class="col-md-10 column">
                 <form role="form" class="form-inline" name="blogForm">
                     <input type="text" id="blogTitle" class="form-control" name="title" placeholder="请输入博客标题"
-                           th:if="${blog != null }"
-                           th:value="${blog.title == null ? '' : blog.title }" style="width: 333px;"/>
-                    <input type="text" id="blogTitle" class="form-control" name="title" placeholder="请输入博客标题"
-                           th:unless="${blog != null }" style="width: 333px;"/>
-
-                    <input type="text" id="blogTags" name="tags" placeholder="输入标签"
-                           th:if="${blog != null }"
-                           th:value="${blog.tags == null ? '' : blog.tags }" data-role="tagsinput"/>
-                    <input type="text" id="blogTags" name="tags" placeholder="输入标签"
-                           th:unless="${blog != null }" data-role="tagsinput"/>
+                           style="width: 333px;"/>
+                    <input type="text" id="blogTags" name="tags" placeholder="输入标签" data-role="tagsinput"/>
 
                     <input type="hidden" name="md"/>
                     <input type="hidden" name="article"/>
-                    <input type="hidden" name="date" th:if="${blog != null }" th:value="${blog.date}"/>
                     <input type="submit" class="form-control qyxz-input" id="add-blog" value="save"/>
                 </form>
             </div>
@@ -55,8 +46,7 @@
         <div class="row">
             <div class="col-md-12 column">
                 <div id="markdown-editor">
-                    <textarea th:if="${blog != null }" style="   display:none;" th:text="${blog.md == null ? '' : blog.md }" ></textarea>
-                    <textarea th:unless="${blog != null }" style="   display:none;" ${blog != null } ></textarea>
+                    <textarea style="display:none;"></textarea>
                 </div>
             </div>
         </div><!-- /.row -->
