@@ -24,6 +24,7 @@ import top.sicso.blog.vo.BlogVO;
 import javax.persistence.criteria.Predicate;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Slf4j
@@ -118,7 +119,15 @@ public class BlogServiceImpl implements BlogService {
 
     @Override
     public Blog addBlog(Blog blog) {
-        return blogRepository.saveAndFlush(blog);
+        Blog b = blogRepository.saveAndFlush(blog);
+        List<String> tags = Arrays.asList(blog.getTags().split(","));
+        tags.forEach(t -> {
+            Tag tag = new Tag();
+            tag.setTagName(t);
+            tag.setBlogId(b.getId());
+            tagRepository.save(tag);
+        });
+        return b;
     }
 
     @Override

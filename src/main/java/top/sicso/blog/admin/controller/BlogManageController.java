@@ -44,7 +44,7 @@ public class BlogManageController {
     @PostMapping("/add")
     public String addBlog(Blog blog ) {
         blogService.addBlog(blog);
-        return "admin/blogAdd";
+        return "redirect:admin/blog/list";
     }
 
 
