@@ -17,9 +17,9 @@ import static org.springframework.util.StreamUtils.copy;
  * 文件操作工具类
  */
 @Slf4j
-public class FileTools {
+public class FileUtils {
 
-    private FileTools() {
+    private FileUtils() {
     }
 
     /**
@@ -47,6 +47,7 @@ public class FileTools {
         copy(in, output);
         return output.toByteArray();
     }
+
     private static FileInputStream openInputStream(final File file) throws IOException {
         if (file.exists()) {
             if (file.isDirectory()) {
@@ -60,13 +61,14 @@ public class FileTools {
         }
         return new FileInputStream(file);
     }
+
     public static String updatePic(String restUrl,String picHome,HttpServletRequest request) throws IOException {
 
         MultipartFile multipartFile = getMultipartFile(request);
 
         //设置图片名称为currentTimeMillis+文件后缀
         String fileName = String.valueOf(System.currentTimeMillis()) + "." +
-                FileTools.getSuffix(multipartFile.getOriginalFilename());
+                FileUtils.getSuffix(multipartFile.getOriginalFilename());
         //获取当前年月
         String yearMonth = TimeTools.getYearMonthOfNow();
 

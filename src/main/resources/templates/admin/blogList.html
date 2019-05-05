@@ -41,11 +41,11 @@
                         <tr>
                             <!--#liClass($velocityCount)-->
                             <td th:text="${blogStat.index + 1}"></td>
-                            <td ><a th:href="@{'/admin/blog/' + ${blog.id}}" th:text="${blog.title}"></a></td>
+                            <td ><a th:href="@{'/admin/blog/update/' + ${blog.id}}" th:text="${blog.title}"></a></td>
                             <td th:text="${blog.tags}"></td>
                             <td th:text="${blog.date}"></td>
                             <td>
-                                <a th:href="@{'/admin/blog/' + ${blog.id}}"><i class="fa fa-pencil"></i></a>
+                                <a th:href="@{'/admin/blog/update/' + ${blog.id}}"><i class="fa fa-pencil"></i></a>
 
                                 <!--<span class="delete" data-title="删除博客!" data-confirm-button="确定"><i class="fa fa-trash-o"></i></span>&emsp;-->
                                 <a class="delete" role="button" href="javascript:void(0)"

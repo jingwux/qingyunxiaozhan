@@ -10,10 +10,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import top.sicso.blog.pojo.Blog;
+import top.sicso.blog.pojo.Tag;
 import top.sicso.blog.service.BlogService;
 import top.sicso.blog.utils.ObjectUtils;
 import top.sicso.blog.utils.TimeUtils;
 import top.sicso.blog.vo.BlogCondition;
+import top.sicso.blog.vo.BlogVO;
+
+import java.util.List;
 
 
 @Api(value = "/", tags = "博客管理模块")
@@ -47,6 +51,15 @@ public class BlogManageController {
         return "redirect:admin/blog/list";
     }
 
+
+    @ApiOperation(value = "加载更新博客页面")
+    @ApiImplicitParam(name = "博客内容", value = "博客相关", required = true, paramType = "path", dataType = "Integer")
+    @GetMapping("/update/{id}")
+    public String updateBlog(@PathVariable Integer id, Model model) {
+        BlogVO blog = blogService.getBlogByBlogId(id);
+        model.addAttribute("blog", blog);
+        return "admin/blogUpdate";
+    }
 
     @ApiOperation(value = "更新博客")
     @ApiImplicitParam(name = "博客内容", value = "博客相关", required = true, paramType = "query", dataType = "top.sicso.blog.pojo.Blog")

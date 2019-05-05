@@ -6,7 +6,7 @@ import top.sicso.blog.pojo.SystemSetting;
 import top.sicso.blog.pojo.UploadPic;
 import top.sicso.non.service.inter.FileUploadSer;
 import top.sicso.non.service.inter.InfoSer;
-import top.sicso.blog.utils.FileTools;
+import top.sicso.blog.utils.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -37,7 +37,7 @@ public class FileUploadSerImpl implements FileUploadSer {
 
         String picUrl="";
         try {
-            picUrl=FileTools.updatePic("/pic/",setting.getPicHome(),request);
+            picUrl= FileUtils.updatePic("/pic/",setting.getPicHome(),request);
         } catch (Exception e) {
            log.warn("上传图片时发生错误:"+e.getLocalizedMessage());
         }
@@ -69,7 +69,7 @@ public class FileUploadSerImpl implements FileUploadSer {
         File file=new File(setting.getPicHome()+File.separatorChar+dir+File.separatorChar+picName);
         byte[] bytes;
         try {
-            bytes= FileTools.readFileToByteArray(file);
+            bytes= FileUtils.readFileToByteArray(file);
         } catch (Exception e) {
             log.warn(e.getLocalizedMessage());
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
