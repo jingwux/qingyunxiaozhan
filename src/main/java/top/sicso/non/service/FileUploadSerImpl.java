@@ -3,7 +3,7 @@ package top.sicso.non.service;
 import lombok.extern.slf4j.Slf4j;
 import top.sicso.blog.pojo.Info;
 import top.sicso.blog.pojo.SystemSetting;
-import top.sicso.blog.pojo.UploadPic;
+import top.sicso.blog.vo.UploadPic;
 import top.sicso.non.service.inter.FileUploadSer;
 import top.sicso.non.service.inter.InfoSer;
 import top.sicso.blog.utils.FileUtils;

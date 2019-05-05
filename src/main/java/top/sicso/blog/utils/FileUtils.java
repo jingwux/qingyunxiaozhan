@@ -62,7 +62,7 @@ public class FileUtils {
         return new FileInputStream(file);
     }
 
-    public static String updatePic(String restUrl,String picHome,HttpServletRequest request) throws IOException {
+    public static String  updatePic(String restUrl,String picHome,HttpServletRequest request) throws IOException {
 
         MultipartFile multipartFile = getMultipartFile(request);
 
