@@ -18,6 +18,9 @@ public class FileHelper {
 
     public static String CRACK;
 
+    public static String PICTURE;
+
+
     @Value("${base.filepath}")
     public void setBaseFilepath(String baseFilepath) {
         BASE_FILEPATH = baseFilepath;
@@ -46,5 +49,10 @@ public class FileHelper {
     @Value("${filepath.crack}")
     public void setCRACK(String CRACK) {
         FileHelper.CRACK = CRACK;
+    }
+
+    @Value("${filepath.img}")
+    public static void setPICTURE(String PICTURE) {
+        FileHelper.PICTURE = PICTURE;
     }
 }
