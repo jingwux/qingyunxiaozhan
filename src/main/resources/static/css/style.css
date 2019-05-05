@@ -1,0 +1,5 @@
+/* 垂直居中 */
+.v-row-center{
+    display: flex;
+    align-items: center;
+}
