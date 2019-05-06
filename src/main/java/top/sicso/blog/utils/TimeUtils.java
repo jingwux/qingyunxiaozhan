@@ -52,8 +52,8 @@ public class TimeUtils {
     }
 
 
-    public static LocalDate stringDate2LocalDate(String date){
-        return LocalDate.parse(date,DateTimeFormatter.ISO_DATE);
+    public static LocalDate stringDate2LocalDate(String date) {
+        return LocalDate.parse(date, DateTimeFormatter.ISO_DATE);
     }
 
     /**
@@ -65,5 +65,17 @@ public class TimeUtils {
         return null;
     }
 
+
+    // ---------   时间值操作  ----------------
+
+    /**
+     * 获取当前日期的年月日时分秒字符串
+     *
+     * @return
+     */
+    public static String getCurrentDateTimeWithoutUnderline() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(TIME_NOFUII_FORMAT);
+        return LocalDateTime.now().format(formatter);
+    }
 
 }

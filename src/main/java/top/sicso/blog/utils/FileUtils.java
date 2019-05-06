@@ -63,59 +63,29 @@ public class FileUtils {
         return new FileInputStream(file);
     }
 
-    public static String updatePic(String restUrl, String picHome, HttpServletRequest request) throws IOException {
 
-        MultipartFile multipartFile = getMultipartFile(request);
-
-        //设置图片名称为currentTimeMillis+文件后缀
-        String fileName = String.valueOf(System.currentTimeMillis()) + "." +
-                FileUtils.getSuffix(multipartFile.getOriginalFilename());
-        //获取当前年月
-        String yearMonth = TimeTools.getYearMonthOfNow();
-
-        //图片存储路径为根路径/年月。比如user/sicso/xmarket/201608
-        File path = new File(picHome + File.separatorChar + yearMonth);
-
-        //合成图片在服务器上的绝对路径
-        File targetFile = new File(picHome + File.separatorChar + yearMonth + File.separatorChar + fileName);
-        if (!path.exists()) {
-            path.mkdirs();
-        }
-        //保存图片
-        multipartFile.transferTo(targetFile);
-        return PathUtils.getRootServerPath(request) + restUrl + yearMonth + "/" + fileName;
-    }
-
-    public static String updatePicture(String picturePath, MultipartFile multipartFile) throws IOException {
+    static String uploadPicture(String picturePath, MultipartFile multipartFile) throws IOException {
 
         if (multipartFile == null || multipartFile.isEmpty()) throw new RuntimeException("文件内容为空");
 
         //设置图片名称为currentTimeMillis+文件后缀
-        String fileName = String.valueOf(System.currentTimeMillis()) + "." + FileUtils.getSuffix(multipartFile.getOriginalFilename());
-        //获取当前年月
-        String yearMonth = TimeTools.getYearMonthOfNow();
+        String fileName = System.currentTimeMillis() + "." + FileUtils.getSuffix(multipartFile.getOriginalFilename());
+        //String fileName = String.valueOf(System.currentTimeMillis()) + "." + FileUtils.getSuffix("jpg");
 
-        //图片存储路径为base file path/picture/年月/filename(time millis).suffix
-        File path = new File(FileHelper.BASE_FILEPATH + picturePath + File.separatorChar + yearMonth);
+        //获取当前年月
+        String dateTime = TimeUtils.getCurrentDateTimeWithoutUnderline();
+
+        //图片存储路径为base file path/picture/年月日时分秒/filename(time millis).suffix
+        File path = new File(FileHelper.BASE_FILEPATH + picturePath + File.separatorChar + dateTime);
         if (!path.exists()) path.mkdirs();
 
         //合成图片在服务器上的绝对路径
-        File targetFile = new File(path , fileName);
+        File targetFile = new File(path, fileName);
 
         //保存图片
         multipartFile.transferTo(targetFile);
-        return picturePath + yearMonth + "/" + fileName;
+        // 返回访问的相对路径
+        return picturePath + "/" + dateTime + "/" + fileName;
     }
-
-    /**
-     * 从HttpServletRequest中获取MultipartFile
-     */
-    private static MultipartFile getMultipartFile(HttpServletRequest request) {
-        MultipartHttpServletRequest multipartRequest =
-                (MultipartHttpServletRequest) request;
-        Iterator<String> fileNames = multipartRequest.getFileNames();
-        return multipartRequest.getFile(fileNames.next());
-    }
-
 
 }

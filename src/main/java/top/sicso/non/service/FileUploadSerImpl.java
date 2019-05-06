@@ -37,7 +37,7 @@ public class FileUploadSerImpl implements FileUploadSer {
 
         String picUrl="";
         try {
-            picUrl= FileUtils.updatePic("/pic/",setting.getPicHome(),request);
+//            picUrl= FileUtils.uploadPicture("/pic/",setting.getPicHome(),request);
         } catch (Exception e) {
            log.warn("上传图片时发生错误:"+e.getLocalizedMessage());
         }

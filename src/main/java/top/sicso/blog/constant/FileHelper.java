@@ -52,7 +52,7 @@ public class FileHelper {
     }
 
     @Value("${filepath.picture}")
-    public static void setPICTURE(String PICTURE) {
+    public  void setPICTURE(String PICTURE) {
         FileHelper.PICTURE = PICTURE;
     }
 }
