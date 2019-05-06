@@ -13,12 +13,13 @@ import top.sicso.blog.pojo.SystemSetting;
  * web页面配置类，拦截器地址在此注册
  */
 @Configuration
-public class WebConfig extends WebMvcConfigurationSupport implements EnvironmentAware {
+public class WebConfig extends WebMvcConfigurationSupport {
 
 
     @Override
     protected void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
+        registry.addResourceHandler("/picture/**").addResourceLocations("file:F:/Temp/file/picture/");
         registry.addResourceHandler("swagger-ui.html").addResourceLocations("classpath:/META-INF/resources/");
         registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
         super.addResourceHandlers(registry);
@@ -30,15 +31,4 @@ public class WebConfig extends WebMvcConfigurationSupport implements Environment
         registry.addConverter(new StringDate2LocalDateConverter());
     }
 
-    @Bean
-    public SystemSetting systemSetting(Environment env) {
-        return SystemSetting.builder()
-                .picHome(env.getProperty("home"))
-                .build();
-    }
-
-    @Override
-    public void setEnvironment(Environment env) {
-        systemSetting(env);
-    }
 }

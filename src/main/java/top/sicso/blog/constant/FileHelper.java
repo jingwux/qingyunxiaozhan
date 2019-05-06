@@ -51,7 +51,7 @@ public class FileHelper {
         FileHelper.CRACK = CRACK;
     }
 
-    @Value("${filepath.img}")
+    @Value("${filepath.picture}")
     public static void setPICTURE(String PICTURE) {
         FileHelper.PICTURE = PICTURE;
     }
