@@ -59,7 +59,7 @@ public class BlogManageController {
     @ApiOperation(value = "发布博客", notes = "发布博客")
     @ApiImplicitParam(name = "博客内容", value = "博客相关", required = true, paramType = "query", dataType = "top.sicso.blog.pojo.Blog")
     @PostMapping("/blog")
-    public String addBlog(Blog blog ) {
+    public String addBlog(Blog blog) {
         blogService.addBlog(blog);
         return "redirect:admin/blog/list";
     }
@@ -91,22 +91,19 @@ public class BlogManageController {
     @ApiOperation(value = "删除博客")
     @ApiImplicitParam(name = "博客id", value = "id", required = true, paramType = "path", dataType = "Integer")
     @DeleteMapping("/blog/{blogId}")
-    public String deleteBlog(RedirectAttributes redirectAttributes, @PathVariable Integer blogId) {
+    @ResponseBody
+    public ResultBean deleteBlog(@PathVariable Integer blogId) {
+        ResultBean resultBean = new ResultBean();
         if (blogId != null) {
-//            blogService.deleteBlog(blogId);
-            return "redirect:/admin/listBlog";
+            blogService.deleteBlog(blogId);
         }
-        redirectAttributes.addFlashAttribute("message", "博客Id不能为空");
-        return "blogAdd";
+        resultBean.setSuccess(ResultBean.SUCCESS);
+        resultBean.setMessage("删除成功");
+        return resultBean;
 
     }
 
-    @ApiOperation(value = "根据博客id查询并显示博客")
-    @ApiImplicitParam(name = "博客id", value = "id", required = true, paramType = "path", dataType = "Integer")
-    @GetMapping("/blog/{blogId}")
-    public String loadBlogByBlogId(@PathVariable Integer blogId, Model model) {
-        model.addAttribute("blog", blogService.getBlogByBlogId(blogId));
-        return "blogAdd";
-    }
+
+
 
 }

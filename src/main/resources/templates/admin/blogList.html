@@ -6,17 +6,25 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title th:title="${title}">Document</title>
+    <style>
 
+    </style>
 </head>
 <body>
 <div id="wrapper">
 
     <nav th:replace="~{module/admin-header :: meun}"></nav>
 
+
     <div id="page-wrapper">
+
+        <div id="msg" style="position: relative;">
+
+        </div>
+
         <div class="row">
             <div class="col-lg-12">
-                <h1>博客列表</h1>
+                <!--<h1>博客列表</h1>-->
                 <ol class="breadcrumb">
                     <li><a href="/admin/"><i class="fa fa-dashboard"></i> Dashboard</a></li>
                     <li class="active"><i class="fa fa-list"></i> 博客列表</li>
@@ -27,7 +35,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="table-responsive">
-                    <table class="table table-bordered table-hover">
+                    <table class="table table-bordered table-hover" style="margin-bottom: 10px;">
                         <thead>
                         <tr>
                             <th>序号<i class="fa"></i></th>
@@ -41,49 +49,49 @@
                         <tr>
                             <!--#liClass($velocityCount)-->
                             <td th:text="${blogStat.index + 1}"></td>
-                            <td ><a th:href="@{'/admin/blog/update/' + ${blog.id}}" th:text="${blog.title}"></a></td>
+                            <td><a th:href="@{'/admin/update/' + ${blog.id}}" th:text="${blog.title}"></a></td>
                             <td th:text="${blog.tags}"></td>
                             <td th:text="${blog.date}"></td>
                             <td>
-                                <a th:href="@{'/admin/blog/update/' + ${blog.id}}"><i class="fa fa-pencil"></i></a>
-
+                                <a th:href="@{'/admin/update/' + ${blog.id}}"><i class="fa fa-pencil"></i></a>
                                 <!--<span class="delete" data-title="删除博客!" data-confirm-button="确定"><i class="fa fa-trash-o"></i></span>&emsp;-->
-                                <a class="delete" role="button" href="javascript:void(0)"
-                                   data-title="删除博客!" data-confirm-button="确定">
+                                <a class="delete" role="button" th:href="@{'/admin/blog/' + ${blog.id}}"
+                                   data-title="删除博客!" data-confirm-button="确定" data-method="delete">
                                     <i class="fa fa-trash-o"></i>
                                 </a>
                             </td>
                         </tr>
                         </tbody>
                     </table>
-                    <nav aria-label="...">
-                        <ul class="pager">
 
-                            <li th:if="${blogs.hasPrevious()}" class="previous">
-                                <a th:href="@{'/admin/listBlog?pageIndex=' + ${blogs.getNumber() - 1}  + '&pageSize=' + ${blogs.getSize()}}">
-                                    <span aria-hidden="true">&larr;</span> 上一页
-                                </a>
-                            </li>
-                            <li th:unless="${blogs.hasPrevious()}" class="previous disabled">
-                                <a href="#">
-                                    <span aria-hidden="true">&larr;</span> 上一页
-                                </a>
-                            </li>
-
-                            <li th:if="${blogs.hasNext()}" class="next">
-                                <a th:href="@{'/admin/listBlog?pageIndex=' + ${blogs.getNumber() + 1}  + '&pageSize=' + ${blogs.getSize()} }">
-                                    下一页<span aria-hidden="true">&rarr;</span>
-                                </a>
-                            </li>
-                            <li th:unless="${blogs.hasNext()}" class="next disabled">
-                                <a href="#">
-                                    下一页<span aria-hidden="true">&rarr;</span>
-                                </a>
-                            </li>
-
-                        </ul>
-                    </nav>
                 </div>
+                <nav aria-label="...">
+                    <ul class="pager" style="margin: 10px;">
+
+                        <li th:if="${blogs.hasPrevious()}" class="previous">
+                            <a th:href="@{'/admin/blog?pageIndex=' + ${blogs.getNumber() - 1}  + '&pageSize=' + ${blogs.getSize()}}">
+                                <span aria-hidden="true">&larr;</span> 上一页
+                            </a>
+                        </li>
+                        <li th:unless="${blogs.hasPrevious()}" class="previous disabled">
+                            <a href="#">
+                                <span aria-hidden="true">&larr;</span> 上一页
+                            </a>
+                        </li>
+
+                        <li th:if="${blogs.hasNext()}" class="next">
+                            <a th:href="@{'/admin/blog?pageIndex=' + ${blogs.getNumber() + 1}  + '&pageSize=' + ${blogs.getSize()} }">
+                                下一页<span aria-hidden="true">&rarr;</span>
+                            </a>
+                        </li>
+                        <li th:unless="${blogs.hasNext()}" class="next disabled">
+                            <a href="#">
+                                下一页<span aria-hidden="true">&rarr;</span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </nav>
             </div>
         </div>
     </div><!-- /#page-wrapper -->
@@ -95,7 +103,10 @@
 <script src="/static/js/jquery.confirm.min.js"></script>
 <script type="text/javascript">
     $(".delete").confirm();
-
+    
+    function update() {
+        
+    }
 
 </script>
 </body>
