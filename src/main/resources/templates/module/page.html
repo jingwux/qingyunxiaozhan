@@ -1,0 +1,29 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<nav aria-label="..." th:fragment="page(obj,path)">
+    <ul class="pager" style="margin: 10px;">
+
+        <li th:if="${projects.hasPrevious()}" class="previous">
+            <a th:href="@{'/admin/' + ${path} + '?pageIndex=' + ${obj.getNumber() - 1}  + '&pageSize=' + ${obj.getSize()}}">
+                <span aria-hidden="true">&larr;</span> 上一页
+            </a>
+        </li>
+        <li th:unless="${obj.hasPrevious()}" class="previous disabled">
+            <a href="#">
+                <span aria-hidden="true">&larr;</span> 上一页
+            </a>
+        </li>
+
+        <li th:if="${obj.hasNext()}" class="next">
+            <a th:href="@{'/admin/' + ${path} + '?pageIndex=' + ${obj.getNumber() + 1}  + '&pageSize=' + ${obj.getSize()} }">
+                下一页<span aria-hidden="true">&rarr;</span>
+            </a>
+        </li>
+        <li th:unless="${obj.hasNext()}" class="next disabled">
+            <a href="#">
+                下一页<span aria-hidden="true">&rarr;</span>
+            </a>
+        </li>
+
+    </ul>
+</nav>
+</html>
