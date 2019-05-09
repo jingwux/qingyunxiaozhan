@@ -11,16 +11,18 @@
 
 
     <!-- Bootstrap core CSS -->
-    <link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"  type="text/css"/>
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 
     <!-- Add custom CSS here -->
     <link href="http://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css"/>
     <link href="http://cdn.bootcss.com/morris.js/0.4.3/morris.css" rel="stylesheet" type="text/css"/>
-    <link th:href="@{~/static/css/admin.css}" href="/static/css/admin.css" rel="stylesheet" type="text/css" />
-    <link th:href="@{~/static/css/style.css}" href="/static/css/style.css" rel="stylesheet" type="text/css" />
-    <link th:href="@{~/static/css/editormd.min.css}" href="/static/css/editormd.min.css" rel="stylesheet" type="text/css"/>
+    <link th:href="@{~/static/css/admin.css}" href="/static/css/admin.css" rel="stylesheet" type="text/css"/>
+    <link th:href="@{~/static/css/style.css}" href="/static/css/style.css" rel="stylesheet" type="text/css"/>
+    <link th:href="@{~/static/css/qyxz-scroll.css}" href="/static/css/qyxz-scroll.css" rel="stylesheet" type="text/css"/>
+    <link th:href="@{~/static/css/editormd.min.css}" href="/static/css/editormd.min.css" rel="stylesheet"
+          type="text/css"/>
     <link th:href="@{~/static/css/bootstrap-tagsinput.min.css}" href="/static/css/bootstrap-tagsinput.min.css"
-           rel="stylesheet" type="text/css" />
+          rel="stylesheet" type="text/css"/>
 </head>
 <body>
 
@@ -35,7 +37,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">Front end</a>
+            <a class="navbar-brand" href="/">首页</a>
         </div>
 
 
@@ -44,7 +46,7 @@
             <ul class="nav navbar-nav side-nav">
                 <li><a href="/admin/"><i class="fa fa-area-chart"></i> Dashboard</a></li>
                 <li><a href="/admin/blog/add"><i class="fa fa-plus"></i> 发表博客</a></li>
-                <li><a href="/admin/blog/list"><i class="fa fa-list"></i> 博客列表</a></li>
+                <li><a href="/admin/blog"><i class="fa fa-list"></i> 博客列表</a></li>
                 <li><a href="/admin/projectPage"><i class="fa fa-eercast"></i> 项目管理</a></li>
                 <li><a href="/admin/resource/1"><i class="fa fa-superpowers"></i> 资源管理</a></li>
                 <li><a href="/admin/info"><i class="fa fa-user"></i> Info</a></li>
@@ -53,10 +55,9 @@
             <ul class="nav navbar-nav navbar-right navbar-user">
                 <li class="dropdown user-dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> admin<b
-                            class="caret"></b></a>
+                            class="caret"></b>&emsp;</a>
                     <ul class="dropdown-menu">
-                        <li><a href="/logout"><i class="fa fa-power-off"></i> 注销</a></li>
-
+                        <li><a href="/logout"><i class="fa fa-power-off"></i>注销</a></li>
                     </ul>
                 </li>
             </ul>
