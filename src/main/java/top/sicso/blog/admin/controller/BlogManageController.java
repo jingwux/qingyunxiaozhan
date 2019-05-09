@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import top.sicso.blog.common.ResultBean;
 import top.sicso.blog.pojo.Blog;
 import top.sicso.blog.pojo.Tag;
 import top.sicso.blog.service.BlogService;
@@ -22,7 +23,7 @@ import java.util.List;
 
 @Api(value = "/", tags = "博客管理模块")
 @Controller
-@RequestMapping("/admin/blog")
+@RequestMapping("/admin")
 public class BlogManageController {
 
     @Autowired
@@ -30,22 +31,34 @@ public class BlogManageController {
 
     @ApiOperation(value = "加载博客列表页面", notes = "加载发布博客页面")
     @ApiImplicitParam(name = "博客列表", value = "博客列表", paramType = "query", dataType = "top.sicso.blog.pojo.BlogCondition")
-    @GetMapping("/list")
+    @GetMapping("/blog")
     public String loadBlogListPage(BlogCondition blogCondition, Model model) {
         if (blogCondition.getPageSize() == 0) blogCondition.setPageSize(15);
         model.addAttribute("blogs", blogService.getBlogByCondition(blogCondition));
         return "admin/blogList";
     }
 
+    @ApiOperation(value = "博客列表Test", notes = "博客列表Test")
+    @ApiImplicitParam(name = "博客列表", value = "博客列表", paramType = "query", dataType = "top.sicso.blog.pojo.BlogCondition")
+    @GetMapping("/blogs")
+    @ResponseBody
+    public ResultBean loadBlogListPage2(BlogCondition blogCondition) {
+        ResultBean result = new ResultBean();
+        if (blogCondition.getPageSize() == 0) blogCondition.setPageSize(15);
+        result.setData(blogService.getBlogByCondition(blogCondition));
+        result.setSuccess(ResultBean.SUCCESS);
+        return result;
+    }
+
     @ApiOperation(value = "加载发布博客页面", notes = "加载发布博客页面")
-    @GetMapping("/add")
+    @GetMapping("/blog/add")
     public String loadAddBlogPage() {
         return "admin/blogAdd";
     }
 
     @ApiOperation(value = "发布博客", notes = "发布博客")
     @ApiImplicitParam(name = "博客内容", value = "博客相关", required = true, paramType = "query", dataType = "top.sicso.blog.pojo.Blog")
-    @PostMapping("/add")
+    @PostMapping("/blog")
     public String addBlog(Blog blog ) {
         blogService.addBlog(blog);
         return "redirect:admin/blog/list";
@@ -63,7 +76,7 @@ public class BlogManageController {
 
     @ApiOperation(value = "更新博客")
     @ApiImplicitParam(name = "博客内容", value = "博客相关", required = true, paramType = "query", dataType = "top.sicso.blog.pojo.Blog")
-    @PutMapping("/update")
+    @PutMapping("/blog")
     public String updateBlog(Blog blog, RedirectAttributes redirectAttributes) {
         if (ObjectUtils.isNotBlank(blog)) {
             if (blog.getDate() == null) blog.setDate(TimeUtils.getCurrentLocalDate());
@@ -77,7 +90,7 @@ public class BlogManageController {
 
     @ApiOperation(value = "删除博客")
     @ApiImplicitParam(name = "博客id", value = "id", required = true, paramType = "path", dataType = "Integer")
-    @DeleteMapping("/deleteBlog/{blogId}")
+    @DeleteMapping("/blog/{blogId}")
     public String deleteBlog(RedirectAttributes redirectAttributes, @PathVariable Integer blogId) {
         if (blogId != null) {
 //            blogService.deleteBlog(blogId);
