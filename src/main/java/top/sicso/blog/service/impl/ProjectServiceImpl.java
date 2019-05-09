@@ -49,8 +49,9 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     public ProjectVO getProjectById(Integer id) {
+        Project project = projectRepository.findById(id).get();
         ProjectVO projectVO = new ProjectVO();
-        BeanUtils.copyProperties(projectRepository.getOne(id), projectVO);
+        BeanUtils.copyProperties(project, projectVO);
         return projectVO;
     }
 

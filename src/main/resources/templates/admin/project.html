@@ -57,7 +57,7 @@
                             <td><a th:href="${project.url}" th:text="${project.url}"></a></td>
                             <td th:text="${project.date}"></td>
                             <td>
-                                <a href="javascript:void(0)" th:data="${project.id}"><i class="fa fa-pencil upd_project"></i></a>
+                                <a href="javascript:void(0)"><i class="fa fa-pencil upd_project" th:name="${project.id}"></i></a>
                                 <!--<span class="delete" data-title="删除博客!" data-confirm-button="确定"><i class="fa fa-trash-o"></i></span>&emsp;-->
                                 <a class="delete" role="button" th:href="@{'/admin/project/' + ${project.id}}"
                                    data-title="删除项目!" data-confirm-button="确定" data-method="delete">
