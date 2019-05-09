@@ -48,6 +48,13 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
+    public ProjectVO getProjectById(Integer id) {
+        ProjectVO projectVO = new ProjectVO();
+        BeanUtils.copyProperties(projectRepository.getOne(id), projectVO);
+        return projectVO;
+    }
+
+    @Override
     public Page<ProjectVO> getProject(ProjectCondition projectCondition) {
         Sort sort = SortUtil.createSort(projectCondition);
 

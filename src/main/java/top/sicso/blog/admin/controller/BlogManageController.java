@@ -33,18 +33,16 @@ public class BlogManageController {
     @ApiImplicitParam(name = "博客列表", value = "博客列表", paramType = "query", dataType = "top.sicso.blog.pojo.BlogCondition")
     @GetMapping("/blog")
     public String loadBlogListPage(BlogCondition blogCondition, Model model) {
-        if (blogCondition.getPageSize() == 0) blogCondition.setPageSize(15);
         model.addAttribute("blogs", blogService.getBlogByCondition(blogCondition));
         return "admin/blogList";
     }
 
-    @ApiOperation(value = "博客列表Test", notes = "博客列表Test")
+    @ApiOperation(value = "Json博客列表", notes = "Json博客列表")
     @ApiImplicitParam(name = "博客列表", value = "博客列表", paramType = "query", dataType = "top.sicso.blog.pojo.BlogCondition")
     @GetMapping("/blogs")
     @ResponseBody
     public ResultBean loadBlogListPage2(BlogCondition blogCondition) {
         ResultBean result = new ResultBean();
-        if (blogCondition.getPageSize() == 0) blogCondition.setPageSize(15);
         result.setData(blogService.getBlogByCondition(blogCondition));
         result.setSuccess(ResultBean.SUCCESS);
         return result;

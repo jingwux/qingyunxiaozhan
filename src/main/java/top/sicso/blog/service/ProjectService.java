@@ -16,6 +16,8 @@ public interface ProjectService {
 
     void updateProject(ProjectVO projectVO);
 
+    ProjectVO getProjectById(Integer id);
+
     Page<ProjectVO> getProject(ProjectCondition projectCondition);
 
     List<ProjectVO> getProject();

@@ -36,12 +36,6 @@ public class AdminController {
     }
 
 
-    @ApiOperation(value = "加载项目页面", notes = "加载发布博客页面")
-    @GetMapping("/projectPage")
-    public String loadProjectPage() {
-        return "admin/project";
-    }
-
 
 
 }
