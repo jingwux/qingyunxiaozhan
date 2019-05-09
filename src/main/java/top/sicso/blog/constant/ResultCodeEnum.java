@@ -11,7 +11,9 @@ public enum ResultCodeEnum {
      *
      */
 
-    UNKNOWN_ERROR(1,"未知错误");
+    UNKNOWN_ERROR(1,"未知错误"),
+    USERNAME_NULL(10001,"用户名为空"),
+    UNAUTHORIZED(20001,"未经授权");
 
     private int code;
 
