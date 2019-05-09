@@ -5,9 +5,9 @@ import lombok.Data;
 @Data
 public class BaseCondition {
 
-    private int pageIndex;
+    private int pageIndex = 0;
 
-    private int pageSize;
+    private int pageSize = 15;
 
     private String order;
 
