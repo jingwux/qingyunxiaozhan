@@ -7,11 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import top.sicso.blog.common.ResultBean;
+import top.sicso.blog.pojo.Project;
 import top.sicso.blog.service.ProjectService;
 import top.sicso.blog.vo.BlogCondition;
 import top.sicso.blog.vo.BlogVO;
@@ -47,13 +45,23 @@ public class ProjectManageController {
         return result;
     }
 
-    @ApiOperation(value = "加载更新博客页面")
-    @ApiImplicitParam(name = "博客内容", value = "博客相关", required = true, paramType = "path", dataType = "Integer")
+    @ApiOperation(value = "加载项目", notes = "根据项目ID加载项目数据")
+    @ApiImplicitParam(name = "项目ID", value = "项目ID", required = true, paramType = "path", dataType = "Integer")
     @GetMapping("/project/{id}")
     @ResponseBody
     public ResultBean updateBlog(@PathVariable Integer id) {
         ResultBean result = new ResultBean();
         result.setData(projectService.getProjectById(id));
+        result.setSuccess(ResultBean.SUCCESS);
+        return result;
+    }
+
+    @ApiOperation(value = "更新项目", notes = "更新项目")
+    @ApiImplicitParam(name = "博客内容", value = "博客相关", required = true, paramType = "query", dataType = "top.sicso.blog.vo.ProjectVO")
+    @PutMapping("/project")
+    @ResponseBody
+    public ResultBean updateBlog(ProjectVO projectVO) {
+        ResultBean result = new ResultBean();
         result.setSuccess(ResultBean.SUCCESS);
         return result;
     }
