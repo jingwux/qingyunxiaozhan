@@ -29,13 +29,18 @@ public class AdminController {
     @Autowired
     private BlogService blogService;
 
-    @ApiOperation(value = "加载管理系统首页", notes = "加载管理系统首页2")
+    @ApiOperation(value = "加载管理系统首页", notes = "加载管理系统首页")
     @RequestMapping(value = "/", method = {RequestMethod.GET, RequestMethod.POST})
     public String index() {
         return "admin/index";
     }
 
 
+    @ApiOperation(value = "个人资料", notes = "加载个人资料")
+    @RequestMapping(value = "/info", method = {RequestMethod.GET, RequestMethod.POST})
+    public String info() {
+        return "admin/info";
+    }
 
 
 }
