@@ -7,10 +7,13 @@
     <title th:text="${title}">青云小栈</title>
     <link rel="shortcut icon" th:href="@{~/static/favicon.ico}"/>
     <link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
-    <link th:href="@{~/static/css/landing-page.min.css}" href="/static/css/landing-page.min.css" rel="stylesheet" type="text/css"
+    <link th:href="@{~/static/css/landing-page.min.css}" href="/static/css/landing-page.min.css" rel="stylesheet"
+          type="text/css"
           id="theme-css"/>
-    <link th:href="@{~/static/css/qyxz-md.min.css}" href="/static/css/qyxz-md.min.css" rel="stylesheet" type="text/css"/>
-    <link th:href="@{~/static/css/qyxz-scroll.css}" href="/static/css/qyxz-scroll.css" rel="stylesheet" type="text/css"/>
+    <link th:href="@{~/static/css/qyxz-md.min.css}" href="/static/css/qyxz-md.min.css" rel="stylesheet"
+          type="text/css"/>
+    <link th:href="@{~/static/css/qyxz-scroll.css}" href="/static/css/qyxz-scroll.css" rel="stylesheet"
+          type="text/css"/>
     <link th:href="@{~/static/css/top.css}" href="/static/css/top.css" rel="stylesheet" type="text/css"/>
     <link href="http://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -45,17 +48,16 @@
                     首页
                 </a>
             </div>
-            <!--<div class="">
-                <div class="col-lg-4">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search for...">
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" type="button">Go!</button>
-                        </span>
-                    </div>&lt;!&ndash; /input-group &ndash;&gt;
-                </div>
-            </div>-->
+
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+               <div>
+                   <form class="navbar-form navbar-left">
+                       <div class="form-group">
+                           <input type="text" class="form-control" placeholder="查询">
+                       </div>
+                       <button type="submit" class="btn btn-default"><i class="fa fa-search "></i></button>
+                   </form>
+               </div>
                 <ul class="nav navbar-nav navbar-right myBar">
                     <li>
                         <a href="/archives/1">归档</a>
@@ -69,14 +71,14 @@
                     <li>
                         <a href="/resources">资源</a>
                     </li>
-                   <!-- <li>
-                        <a href="/admin/">Admin</a>
-                    </li>-->
-                   <!-- <li>
-                        <a href='javascript:void(0)' onclick="day_night()"><i class="fa fa-moon-o" id="day-night"></i>
-                            <span class="network-name" id="day-night-name">夜</span>
-                        </a>
-                    </li>-->
+                    <!-- <li>
+                         <a href="/admin/">Admin</a>
+                     </li>-->
+                    <!-- <li>
+                         <a href='javascript:void(0)' onclick="day_night()"><i class="fa fa-moon-o" id="day-night"></i>
+                             <span class="network-name" id="day-night-name">夜</span>
+                         </a>
+                     </li>-->
                 </ul>
             </div>
         </div>
@@ -94,12 +96,14 @@
                                 <a href="mailto:$!{info.Email}" class="btn btn-default btn-lg"><i class="fa fa-envelope fa-fw"></i> <span class="network-name">Email</span></a>
                             </li>-->
                             <li>
-                                <a th:href="'https://github.com/yuanqingx'" target="_blank" class="btn btn-default btn-lg"><i
+                                <a th:href="'https://github.com/yuanqingx'" target="_blank"
+                                   class="btn btn-default btn-lg"><i
                                         class="fa fa-github fa-fw"></i>
                                     <span class="network-name">Github</span></a>
                             </li>
                             <li>
-                                <a href="https://www.linkedin.com/in/yuanqing-xie-5423aa170/" target="_blank"   class="btn btn-default btn-lg"><i
+                                <a href="https://www.linkedin.com/in/yuanqing-xie-5423aa170/" target="_blank"
+                                   class="btn btn-default btn-lg"><i
                                         class="fa fa-linkedin fa-fw"></i> <span
                                         class="network-name">Linked in</span></a>
                             </li>
