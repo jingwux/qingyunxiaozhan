@@ -23,9 +23,10 @@ import top.sicso.blog.vo.BlogVO;
 
 import javax.persistence.criteria.Predicate;
 import javax.transaction.Transactional;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Service
@@ -148,7 +149,8 @@ public class BlogServiceImpl implements BlogService {
 
     @Override
     public List<Tag> getAllTags() {
-        return tagRepository.findAll();
+        List<Tag> tags = tagRepository.findAll();
+        return tags.stream().distinct().collect(Collectors.toList());
     }
 
     @Override
@@ -166,5 +168,8 @@ public class BlogServiceImpl implements BlogService {
         BeanUtils.copyProperties(blog, blogVO);
         return blogVO;
     }
+
+
+
 
 }

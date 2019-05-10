@@ -4,6 +4,7 @@ package top.sicso.blog.pojo;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Data
@@ -19,4 +20,16 @@ public class Tag {
 
     private Integer blogId;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Tag tag = (Tag) o;
+        return Objects.equals(tagName.toUpperCase(), tag.tagName.toUpperCase());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(tagName);
+    }
 }
