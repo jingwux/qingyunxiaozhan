@@ -58,8 +58,9 @@ public class BlogManageController {
     @ApiImplicitParam(name = "博客内容", value = "博客相关", required = true, paramType = "query", dataType = "top.sicso.blog.pojo.Blog")
     @PostMapping("/blog")
     public String addBlog(Blog blog) {
+        blog.setDate(TimeUtils.getCurrentLocalDate());
         blogService.addBlog(blog);
-        return "redirect:admin/blog/list";
+        return "redirect:admin/blog";
     }
 
 

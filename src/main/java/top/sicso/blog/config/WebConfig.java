@@ -5,8 +5,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 import org.springframework.format.FormatterRegistry;
+import org.springframework.web.filter.HttpPutFormContentFilter;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import top.sicso.blog.pojo.SystemSetting;
 
 /**
@@ -30,5 +33,14 @@ public class WebConfig extends WebMvcConfigurationSupport {
     protected void addFormatters(FormatterRegistry registry) {
         registry.addConverter(new StringDate2LocalDateConverter());
     }
+
+
+    // 就是这个
+    @Bean
+    public HttpPutFormContentFilter httpPutFormContentFilter() {
+        return new HttpPutFormContentFilter();
+    }
+
+
 
 }

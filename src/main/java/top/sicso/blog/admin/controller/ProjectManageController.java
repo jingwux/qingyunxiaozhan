@@ -49,7 +49,7 @@ public class ProjectManageController {
     @ApiImplicitParam(name = "项目ID", value = "项目ID", required = true, paramType = "path", dataType = "Integer")
     @GetMapping("/project/{id}")
     @ResponseBody
-    public ResultBean updateBlog(@PathVariable Integer id) {
+    public ResultBean updateProject(@PathVariable Integer id) {
         ResultBean result = new ResultBean();
         result.setData(projectService.getProjectById(id));
         result.setSuccess(ResultBean.SUCCESS);
@@ -60,11 +60,26 @@ public class ProjectManageController {
     @ApiImplicitParam(name = "博客内容", value = "博客相关", required = true, paramType = "query", dataType = "top.sicso.blog.vo.ProjectVO")
     @PutMapping("/project")
     @ResponseBody
-    public ResultBean updateBlog(ProjectVO projectVO) {
+    public ResultBean updateProject(ProjectVO projectVO) {
         ResultBean result = new ResultBean();
+        projectService.updateProject(projectVO);
         result.setSuccess(ResultBean.SUCCESS);
         return result;
     }
 
+
+    @ApiOperation(value = "删除项目")
+    @ApiImplicitParam(name = "项目id", value = "id", required = true, paramType = "path", dataType = "Integer")
+    @DeleteMapping("/project/{projectId}")
+    @ResponseBody
+    public ResultBean deleteProject(@PathVariable Integer projectId) {
+        ResultBean resultBean = new ResultBean();
+        if (projectId != null) {
+            projectService.deleteProject(projectId);
+        }
+        resultBean.setSuccess(ResultBean.SUCCESS);
+        resultBean.setMessage("删除成功");
+        return resultBean;
+    }
 
 }
