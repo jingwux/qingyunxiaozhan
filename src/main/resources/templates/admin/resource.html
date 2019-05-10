@@ -20,7 +20,7 @@
             </div>
             <div class="col-md-2 col-xs-4">
                 <button class="btn btn-default btn-lg" id="add_project">
-                    <i class="fa fa-plus"></i> <span class="network-name">添加项目</span>
+                    <i class="fa fa-plus"></i> <span class="network-name">添加资源</span>
                 </button>
             </div>
         </div><!-- /.row -->
@@ -28,14 +28,14 @@
             <div class="col-lg-12">
                 <ol class="breadcrumb">
                     <li><a href="/admin/"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-                    <li class="active"><i class="fa fa-table"></i> open source</li>
+                    <li class="active"><i class="fa fa-table"></i>open source</li>
                 </ol>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-12">
                 <div class="table-responsive">
-                    <table class="table table-bordered table-condensed table-hover" style="margin-bottom: 10px;">
+                   <!-- <table class="table table-bordered table-condensed table-hover" style="margin-bottom: 10px;">
                         <thead>
                         <tr>
                             <th>序号<i class="fa"></i></th>
@@ -49,7 +49,7 @@
                         </thead>
                         <tbody th:each="project,projectStat : ${projects.getContent()}">
                         <tr>
-                            <!--#liClass($velocityCount)-->
+                            &lt;!&ndash;#liClass($velocityCount)&ndash;&gt;
                             <td th:text="${projectStat.index + 1}"></td>
                             <td><a th:href="@{'/admin/update/' + ${project.id}}" th:text="${project.name}"></a></td>
                             <td><span  th:text="${project.description}"></span></td>
@@ -58,7 +58,7 @@
                             <td th:text="${project.date}"></td>
                             <td>
                                 <a href="javascript:void(0)"><i class="fa fa-pencil upd_project" th:name="${project.id}"></i></a>
-                                <!--<span class="delete" data-title="删除博客!" data-confirm-button="确定"><i class="fa fa-trash-o"></i></span>&emsp;-->
+                                &lt;!&ndash;<span class="delete" data-title="删除博客!" data-confirm-button="确定"><i class="fa fa-trash-o"></i></span>&emsp;&ndash;&gt;
                                 <a class="delete" role="button" th:href="@{'/admin/project/' + ${project.id}}"
                                    data-title="删除项目!" data-confirm-button="确定" data-method="delete">
                                     <i class="fa fa-trash-o"></i>
@@ -66,9 +66,9 @@
                             </td>
                         </tr>
                         </tbody>
-                    </table>
+                    </table>-->
                 </div>
-                <nav th:replace="~{module/page :: page(${projects}, 'project')}"></nav>
+                <!--<nav th:replace="~{module/page :: page(${projects}, 'project')}"></nav>-->
             </div>
         </div><!-- /.row -->
     </div><!-- /#page-wrapper -->
