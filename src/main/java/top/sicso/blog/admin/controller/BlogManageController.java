@@ -60,7 +60,7 @@ public class BlogManageController {
     public String addBlog(Blog blog) {
         blog.setDate(TimeUtils.getCurrentLocalDate());
         blogService.addBlog(blog);
-        return "redirect:admin/blog";
+        return "redirect:blog";
     }
 
 
@@ -72,6 +72,8 @@ public class BlogManageController {
         model.addAttribute("blog", blog);
         return "admin/blogUpdate";
     }
+
+
 
     @ApiOperation(value = "更新博客")
     @ApiImplicitParam(name = "博客内容", value = "博客相关", required = true, paramType = "query", dataType = "top.sicso.blog.pojo.Blog")
