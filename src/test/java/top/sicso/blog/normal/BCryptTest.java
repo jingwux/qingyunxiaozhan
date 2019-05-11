@@ -12,7 +12,7 @@ public class BCryptTest extends InitTest {
     @Autowired
     private AdminRepository adminRepository;
 
-    @Test
+//    @Test
     public void testAddBCryptPassword(){
         Admin admin = adminRepository.findByUsername("myyl");
         // old :81dc9bdb52d04dc20036dbd8313ed055

@@ -1,5 +1,8 @@
 package top.sicso.blog.common;
 
+import lombok.Data;
+
+@Data
 public class FileResult {
 
     private static final boolean SUCCESS = true;
