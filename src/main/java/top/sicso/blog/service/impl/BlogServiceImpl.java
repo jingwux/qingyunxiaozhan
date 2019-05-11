@@ -102,7 +102,7 @@ public class BlogServiceImpl implements BlogService {
                 Predicate id = criteriaBuilder.equal(root.get("id").as(Integer.class), blogCondition.getId());
                 predicates.add(id);
             }
-            return criteriaBuilder.and(predicates.toArray(new Predicate[0]));
+            return criteriaBuilder.or(predicates.toArray(new Predicate[0]));
         };
 
         List<BlogVO> blogVOList = new ArrayList<>();
