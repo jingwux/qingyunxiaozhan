@@ -17,7 +17,7 @@
             <div class="archive">
                 <h2 class="year" th:text="${tagName}"></h2>
                 <div class="post-item" th:each="blog : ${tags.list}">
-                    <div class="post-time" th:text="blog.m">
+                    <div class="post-time" th:text="${blog.date}">
                     </div>
                     <a th:href="@{'/blog/detail/'+ ${blog.id}}" class="post-link" th:text="${blog.title}"></a>
                 </div>
