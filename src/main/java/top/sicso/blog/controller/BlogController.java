@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import top.sicso.blog.pojo.Blog;
 import top.sicso.blog.service.BlogService;
 import top.sicso.blog.vo.ArchiveVO;
+import top.sicso.blog.vo.BlogCondition;
 import top.sicso.blog.vo.BlogVO;
 
 @Api(value = "/", tags = "博客显示模块")
@@ -48,6 +49,19 @@ public class BlogController {
         model.addAttribute("tagName", tagName);
         model.addAttribute("tags", blogService.getBlogByTagName(tagName));
         return "tagView";
+    }
+
+    @ApiOperation(value = "模糊查询博客")
+    @ApiImplicitParam(name = "搜索条件", value = "搜索条件", required = true, dataType = "String", paramType = "path")
+    @GetMapping(value = "/blog/search/{info}")
+    public String getBlog(Model model, @PathVariable String info) {
+        BlogCondition blogCondition = new BlogCondition();
+        blogCondition.setTags(info);
+        blogCondition.setTitle(info);
+        model.addAttribute("title", "博客");
+        model.addAttribute("info", info);
+        model.addAttribute("blogs", blogService.getBlogByCondition(blogCondition));
+        return "searchView";
     }
 
 
