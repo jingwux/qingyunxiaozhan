@@ -10,4 +10,6 @@ public interface AdminService {
 
     Admin getByName(String adminName);
 
+    Admin getAdmin();
+
 }

@@ -18,7 +18,7 @@
                 <h1>Info</h1>
                 <ol class="breadcrumb">
                     <li><a href="/admin/"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-                    <li class="active"><i class="fa fa-table"></i> profile</li>
+                    <li class="active"><i class="fa fa-user-circle"></i> 个人信息</li>
                 </ol>
             </div>
         </div><!-- /.row -->
@@ -37,19 +37,19 @@
                             <form name="infoForm">
                                 <div class="form-group">
                                     <label class="text-warning">username</label>
-                                    <input type="text" class="form-control" value="$!{info.Username}" name="username">
+                                    <input type="text" class="form-control" th:value="${admin.username}" name="username">
                                 </div>
                                 <div class="form-group">
                                     <label class="text-warning">email</label>
-                                    <input type="email" class="form-control" value="$!{info.Email}" name="email">
+                                    <input type="email" class="form-control" th:value="${admin.email}" name="email">
                                 </div>
                                 <div class="form-group">
                                     <label class="text-warning">github</label>
-                                    <input type="text" class="form-control" value="$!{info.Github}" name="github">
+                                    <input type="text" class="form-control" value="https://github.com/yuanqingx" name="github">
                                 </div>
                                 <div class="form-group">
                                     <label class="text-warning">twitter</label>
-                                    <input type="text" class="form-control" value="$!{info.Twitter}" name="twitter">
+                                    <input type="text" class="form-control" th:value="${admin.info}" name="twitter">
                                 </div>
                                 <button type="submit" class="btn btn-primary" id="info_update">Update</button>
                             </form>
