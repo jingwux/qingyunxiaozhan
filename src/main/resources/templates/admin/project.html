@@ -14,6 +14,9 @@
     <nav th:replace="~{module/admin-header :: meun}"></nav>
 
     <div id="page-wrapper" class="container">
+
+        <div id="msg" style="position: relative;"></div>
+
         <div class="row v-row-center">
             <div class="col-md-10 col-xs-6">
                 <h1>Project</h1>
@@ -52,12 +55,13 @@
                             <!--#liClass($velocityCount)-->
                             <td th:text="${projectStat.index + 1}"></td>
                             <td><a th:href="@{'/admin/update/' + ${project.id}}" th:text="${project.name}"></a></td>
-                            <td><span  th:text="${project.description}"></span></td>
+                            <td><span th:text="${project.description}"></span></td>
                             <td th:text="${project.tech}"></td>
                             <td><a th:href="${project.url}" th:text="${project.url}"></a></td>
                             <td th:text="${project.date}"></td>
                             <td>
-                                <a href="javascript:void(0)"><i class="fa fa-pencil upd_project" th:name="${project.id}"></i></a>
+                                <a href="javascript:void(0)"><i class="fa fa-pencil upd_project"
+                                                                th:name="${project.id}"></i></a>
                                 <!--<span class="delete" data-title="删除博客!" data-confirm-button="确定"><i class="fa fa-trash-o"></i></span>&emsp;-->
                                 <a class="delete" role="button" th:href="@{'/admin/project/' + ${project.id}}"
                                    data-title="删除项目!" data-confirm-button="确定" data-method="delete">
@@ -68,7 +72,7 @@
                         </tbody>
                     </table>
                 </div>
-                <nav th:replace="~{module/page :: page(${projects}, 'project')}"></nav>
+                <nav th:replace="~{module/page :: page(${resources}, 'resource')}"></nav>
             </div>
         </div><!-- /.row -->
     </div><!-- /#page-wrapper -->

@@ -25,7 +25,7 @@ public class ProjectManageController {
     @Autowired
     private ProjectService projectService;
 
-    @ApiOperation(value = "加载项目页面", notes = "加载发布博客页面")
+    @ApiOperation(value = "加载推荐项目页面", notes = "加载推荐项目页面")
     @GetMapping("/project")
     public String loadProjectPage(ProjectCondition projectCondition, Model model) {
         Page<ProjectVO> projects = projectService.getProject(projectCondition);
@@ -34,8 +34,8 @@ public class ProjectManageController {
     }
 
 
-    @ApiOperation(value = "Json项目列表", notes = "Json项目列表")
-    @ApiImplicitParam(name = "项目列表", value = "项目列表", paramType = "query", dataType = "top.sicso.blog.pojo.ProjectCondition")
+    @ApiOperation(value = "Json推荐项目列表", notes = "Json推荐项目列表")
+    @ApiImplicitParam(name = "推荐项目列表", value = "推荐项目列表", paramType = "query", dataType = "top.sicso.blog.pojo.ProjectCondition")
     @GetMapping("/projects")
     @ResponseBody
     public ResultBean projectJsonList(ProjectCondition projectCondition) {
@@ -45,8 +45,8 @@ public class ProjectManageController {
         return result;
     }
 
-    @ApiOperation(value = "加载项目", notes = "根据项目ID加载项目数据")
-    @ApiImplicitParam(name = "项目ID", value = "项目ID", required = true, paramType = "path", dataType = "Integer")
+    @ApiOperation(value = "加载推荐项目", notes = "根据项目ID加载项目数据")
+    @ApiImplicitParam(name = "推荐项目ID", value = "项目ID", required = true, paramType = "path", dataType = "Integer")
     @GetMapping("/project/{id}")
     @ResponseBody
     public ResultBean updateProject(@PathVariable Integer id) {
@@ -56,8 +56,8 @@ public class ProjectManageController {
         return result;
     }
 
-    @ApiOperation(value = "更新项目", notes = "更新项目")
-    @ApiImplicitParam(name = "博客内容", value = "博客相关", required = true, paramType = "query", dataType = "top.sicso.blog.vo.ProjectVO")
+    @ApiOperation(value = "更新推荐项目", notes = "更新推荐项目")
+    @ApiImplicitParam(name = "推荐", value = "推荐", required = true, paramType = "query", dataType = "top.sicso.blog.vo.ProjectVO")
     @PutMapping("/project")
     @ResponseBody
     public ResultBean updateProject(ProjectVO projectVO) {
@@ -68,7 +68,7 @@ public class ProjectManageController {
     }
 
 
-    @ApiOperation(value = "删除项目")
+    @ApiOperation(value = "删除推荐项目")
     @ApiImplicitParam(name = "项目id", value = "id", required = true, paramType = "path", dataType = "Integer")
     @DeleteMapping("/project/{projectId}")
     @ResponseBody
@@ -80,6 +80,17 @@ public class ProjectManageController {
         resultBean.setSuccess(ResultBean.SUCCESS);
         resultBean.setMessage("删除成功");
         return resultBean;
+    }
+
+    @ApiOperation(value = "添加推荐项目", notes = "添加推荐项目")
+    @ApiImplicitParam(name = "推荐项目内容", value = "项目", required = true, paramType = "query", dataType = "top.sicso.blog.vo.ProjectVO")
+    @PostMapping("/project")
+    @ResponseBody
+    public ResultBean addProject(ProjectVO projectVO) {
+        ResultBean result = new ResultBean();
+        projectService.addProject(projectVO);
+        result.setSuccess(ResultBean.SUCCESS);
+        return result;
     }
 
 }

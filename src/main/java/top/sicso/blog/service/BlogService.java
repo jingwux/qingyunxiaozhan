@@ -36,4 +36,6 @@ public interface BlogService{
 
     List<Tag> getTagsByBlogId(Integer blogId);
 
+    void deleteTagsByBlogId(Integer blogId);
+
 }

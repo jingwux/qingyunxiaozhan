@@ -158,6 +158,11 @@ public class BlogServiceImpl implements BlogService {
         return tagRepository.findByBlogId(blogId);
     }
 
+    @Override
+    public void deleteTagsByBlogId(Integer blogId) {
+        tagRepository.deleteByBlogId(blogId);
+    }
+
 
     private long getBlogsCount(){
         return blogRepository.count();

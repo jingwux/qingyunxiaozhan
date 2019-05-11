@@ -13,4 +13,5 @@ public interface TagRepository extends JpaRepository<Tag,Integer> {
 
     List<Tag> findByBlogId(Integer vid);
 
+    void deleteByBlogId(Integer blogId);
 }
