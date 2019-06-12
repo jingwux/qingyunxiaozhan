@@ -64,7 +64,7 @@ public class FileUtils {
     }
 
 
-    static String uploadPicture(String picturePath, MultipartFile multipartFile) throws IOException {
+    public static String uploadPicture(String picturePath, MultipartFile multipartFile) throws IOException {
 
         if (multipartFile == null || multipartFile.isEmpty()) throw new RuntimeException("文件内容为空");
 

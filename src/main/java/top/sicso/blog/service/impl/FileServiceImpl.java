@@ -7,6 +7,7 @@ import top.sicso.blog.service.FileService;
 import top.sicso.blog.utils.FileUtils;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 
 @Service
 public class FileServiceImpl implements FileService {
@@ -16,8 +17,14 @@ public class FileServiceImpl implements FileService {
     public FileResult uploadBlogPicture(String picPath, MultipartFile picture, HttpServletRequest request) {
         FileResult fileResult = new FileResult();
 
-//        FileUtils.updatePic();
+        try {
+            String url = FileUtils.uploadPicture(picPath, picture);
+            fileResult.setUrl(url);
+            fileResult.setSuccess(FileResult.SUCCESS);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-        return null;
+        return fileResult;
     }
 }

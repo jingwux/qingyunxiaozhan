@@ -14,4 +14,7 @@ public interface FileService {
      */
     FileResult uploadBlogPicture(String picPath, MultipartFile picture, HttpServletRequest request);
 
+
+//    FileResult loadBlogPicture();
+
 }

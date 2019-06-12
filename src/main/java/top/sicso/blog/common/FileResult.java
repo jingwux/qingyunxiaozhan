@@ -5,8 +5,8 @@ import lombok.Data;
 @Data
 public class FileResult {
 
-    private static final boolean SUCCESS = true;
-    private static final boolean FAILED = false;
+    public static final boolean SUCCESS = true;
+    public static final boolean FAILED = false;
 
     private boolean success = false;
     private int code;
