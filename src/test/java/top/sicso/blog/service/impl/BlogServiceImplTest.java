@@ -46,10 +46,10 @@ public class BlogServiceImplTest extends InitTest {
     @Test
     public void getBlogByCondition(){
         BlogCondition blogCondition = new BlogCondition();
-        blogCondition.setPageIndex(0);
-        blogCondition.setPageSize(3);
+        blogCondition.setPageIndex(1);
+        blogCondition.setPageSize(10);
         Page<BlogVO> blog = blogService.getBlogByCondition(blogCondition);
-        System.out.println("总数：" + blog.getTotalElements());
+       /* System.out.println("总数：" + blog.getTotalElements());
         System.out.println("总页数：" + blog.getTotalPages());
         System.out.println("当前页：" + blog.getNumber());
         System.out.println("元素个数：" + blog.getNumberOfElements());
@@ -58,11 +58,11 @@ public class BlogServiceImplTest extends InitTest {
         System.out.println("有数据：" + blog.hasContent());
         System.out.println("有前一页" + blog.hasPrevious());
         System.out.println("是第一页：" + blog.isFirst());
-        System.out.println("是最后一页：" + blog.isLast());
+        System.out.println("是最后一页：" + blog.isLast());*/
 
 
-//        assertNotNull(blog);
-//        blog.getList().forEach(System.out::println);
+        assertNotNull(blog);
+        blog.getContent().forEach(System.out::println);
     }
 
 

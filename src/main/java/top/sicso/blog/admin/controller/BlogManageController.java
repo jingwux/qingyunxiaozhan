@@ -80,7 +80,9 @@ public class BlogManageController {
     @PutMapping("/blog")
     public String updateBlog(Blog blog, RedirectAttributes redirectAttributes) {
         if (ObjectUtils.isNotBlank(blog)) {
-            if (blog.getDate() == null) blog.setDate(TimeUtils.getCurrentLocalDate());
+            if (blog.getDate() == null){
+                blog.setDate(TimeUtils.getCurrentLocalDate());
+            }
             blogService.addBlog(blog);
             return "redirect:/admin/listBlog";
         }

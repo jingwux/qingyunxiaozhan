@@ -44,7 +44,7 @@ public class DruidConfig {
         bean.setFilter(new WebStatFilter());
 
         Map<String, String> initParams = new HashMap<>();
-        initParams.put("exclusions", "*.js,*.css,*.svg,*.jpg,*.png,/druid/*");
+        initParams.put("exclusions", "*.js,*.css,*.svg,*.jpg,*.png,*.ico,*.woff2,/druid/*");
 
         bean.setInitParameters(initParams);
 
