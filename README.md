@@ -7,7 +7,7 @@
 #### 所用技术:
  - Spring Boot 
  - Spring MVC: MVC框架
- - Spring Security
+ - Spring Security：用户角色权限管理
  - Tomcat: web容器
  - Spring Data JPA: ORM框架
  - Thymeleaf: 模板引擎
