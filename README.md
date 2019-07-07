@@ -1,6 +1,7 @@
 
-[原项目github地址](https://github.com/flyleft/jcalaBlog)
-[github地址](https://github.com/yuanqingx/qingyunxiaozhan)
+ [原项目github地址](https://github.com/flyleft/jcalaBlog)
+
+ [github地址](https://github.com/yuanqingx/qingyunxiaozhan)
 
 ## 个人博客网站
 #### 所用技术:
