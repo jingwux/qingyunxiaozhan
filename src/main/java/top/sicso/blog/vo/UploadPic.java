@@ -2,9 +2,14 @@ package top.sicso.blog.vo;
 
 import lombok.*;
 
+
 /**
- * 上传图片回显提示的实体类
+ * @Author: myyl
+ * @Time: 2019/04/15 13:14:00
+ * @Description:
  */
+
+
 @Data
 public class UploadPic {
 

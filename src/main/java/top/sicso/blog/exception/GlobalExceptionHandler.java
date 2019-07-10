@@ -8,8 +8,12 @@ import top.sicso.blog.common.ResultBean;
 import top.sicso.blog.constant.ResultCodeEnum;
 
 /**
- * 全局异常处理类
+ * @Author: myyl
+ * @Time: 2019/04/15 13:14:00
+ * @Description: 全局异常处理类
  */
+
+
 @ControllerAdvice
 @Slf4j
 public class GlobalExceptionHandler {

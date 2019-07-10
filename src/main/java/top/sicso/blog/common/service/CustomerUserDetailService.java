@@ -11,6 +11,14 @@ import org.springframework.stereotype.Service;
 import top.sicso.blog.pojo.Admin;
 import top.sicso.blog.admin.service.AdminService;
 
+
+/**
+ * @Author: myyl
+ * @Time: 2019/7/10 - 15:50
+ * @Description:
+ */
+
+
 @Service
 public class CustomerUserDetailService implements UserDetailsService {
 

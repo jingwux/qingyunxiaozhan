@@ -5,9 +5,14 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
+
 /**
- * Created by Administrator on 2016/9/17.
+ * @Author: myyl
+ * @Time: 2019/04/15 13:14:00
+ * @Description:
  */
+
+
 public class TimeTools {
 
     private TimeTools() {

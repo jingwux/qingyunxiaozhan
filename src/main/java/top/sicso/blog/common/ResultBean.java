@@ -5,6 +5,13 @@ import lombok.Data;
 
 import java.io.Serializable;
 
+/**
+ * @Author: myyl
+ * @Time: 2019/04/15 13:14:00
+ * @Description:
+ */
+
+
 @Data
 public class ResultBean implements Serializable {
 

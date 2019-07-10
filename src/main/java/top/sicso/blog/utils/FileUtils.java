@@ -14,9 +14,14 @@ import java.util.Iterator;
 
 import static org.springframework.util.StreamUtils.copy;
 
+
 /**
- * 文件操作工具类
+ * @Author: myyl
+ * @Time: 2019/04/15 13:14:00
+ * @Description:
  */
+
+
 @Slf4j
 public class FileUtils {
 

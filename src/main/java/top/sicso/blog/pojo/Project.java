@@ -6,7 +6,9 @@ import javax.persistence.*;
 import java.util.Date;
 
 /**
- * Created by Administrator on 2016/9/16.
+ * @Author: myyl
+ * @Time: 2019/04/15 13:14:00
+ * @Description:
  */
 
 @Data

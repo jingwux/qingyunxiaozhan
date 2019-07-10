@@ -4,6 +4,13 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import top.sicso.blog.common.BaseCondition;
 
+/**
+ * @Author: myyl
+ * @Time: 2019/04/15 13:14:00
+ * @Description:
+ */
+
+
 @Data
 @EqualsAndHashCode(callSuper = false)
 public class ProjectCondition extends BaseCondition {

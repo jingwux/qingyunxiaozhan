@@ -7,6 +7,13 @@ import top.sicso.blog.pojo.Blog;
 import java.time.LocalDate;
 import java.util.Date;
 
+/**
+ * @Author: myyl
+ * @Time: 2019/04/15 13:14:00
+ * @Description:
+ */
+
+
 @Data
 @ToString
 public class BlogVO {

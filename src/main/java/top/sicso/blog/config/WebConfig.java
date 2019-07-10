@@ -13,8 +13,12 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import top.sicso.blog.pojo.SystemSetting;
 
 /**
- * web页面配置类，拦截器地址在此注册
+ * @Author: myyl
+ * @Time: 2019/04/15 13:14:00
+ * @Description: web页面配置类，拦截器地址在此注册
  */
+
+
 @Configuration
 public class WebConfig extends WebMvcConfigurationSupport {
 

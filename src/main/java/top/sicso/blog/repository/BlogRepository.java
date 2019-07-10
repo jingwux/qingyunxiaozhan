@@ -13,6 +13,13 @@ import top.sicso.blog.pojo.Blog;
 import java.util.List;
 
 
+/**
+ * @Author: myyl
+ * @Time: 2019/04/15 13:14:00
+ * @Description:
+ */
+
+
 @Repository
 public interface BlogRepository extends JpaRepository<Blog, Integer>, JpaSpecificationExecutor<Blog> {
 

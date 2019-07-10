@@ -7,8 +7,12 @@ import java.time.LocalDate;
 import java.util.Date;
 
 /**
- * 博客页面的存储，包括id,日期，标题和博客页面
+ * @Author: myyl
+ * @Time: 2019/04/15 13:14:00
+ * @Description: 博客页面的存储，包括id,日期，标题和博客页面
  */
+
+
 @Data
 @Entity
 @Table(name = "tb_blog")

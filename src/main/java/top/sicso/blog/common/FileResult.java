@@ -2,6 +2,13 @@ package top.sicso.blog.common;
 
 import lombok.Data;
 
+/**
+ * @Author: myyl
+ * @Time: 2019/04/15 13:14:00
+ * @Description:
+ */
+
+
 @Data
 public class FileResult {
 

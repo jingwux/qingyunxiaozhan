@@ -3,9 +3,14 @@ package top.sicso.blog.pojo;
 import lombok.Builder;
 import lombok.Getter;
 
+
 /**
- * 全局配置类，用于储存自定义的全局变量
+ * @Author: myyl
+ * @Time: 2019/04/15 13:14:00
+ * @Description:
  */
+
+
 @Builder
 public class SystemSetting {
     @Getter

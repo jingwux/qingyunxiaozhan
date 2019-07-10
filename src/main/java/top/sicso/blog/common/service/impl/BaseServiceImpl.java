@@ -6,6 +6,13 @@ import top.sicso.blog.common.service.BaseService;
 import java.io.Serializable;
 import java.util.List;
 
+/**
+ * @Author: myyl
+ * @Time: 2019/04/15 13:14:00
+ * @Description:
+ */
+
+
 public abstract class BaseServiceImpl<T, PK extends Serializable> implements BaseService<T, PK> {
 
     protected abstract JpaRepository<T, PK> getRepository();

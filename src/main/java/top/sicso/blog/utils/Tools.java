@@ -8,9 +8,14 @@ import java.util.Date;
 import java.util.List;
 import java.util.StringTokenizer;
 
+
 /**
- * 其他工具类
+ * @Author: myyl
+ * @Time: 2019/04/15 13:14:00
+ * @Description:
  */
+
+
 public class Tools {
 
     private static final String UNKNOWN = "unknown";

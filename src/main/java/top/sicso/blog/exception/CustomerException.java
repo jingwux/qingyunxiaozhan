@@ -2,6 +2,13 @@ package top.sicso.blog.exception;
 
 import top.sicso.blog.constant.ResultCodeEnum;
 
+/**
+ * @Author: myyl
+ * @Time: 2019/04/15 13:14:00
+ * @Description:
+ */
+
+
 public class CustomerException extends RuntimeException {
 
     private ResultCodeEnum resultCodeEnum;

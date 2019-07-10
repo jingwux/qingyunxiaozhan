@@ -9,6 +9,13 @@ import org.springframework.stereotype.Repository;
 import top.sicso.blog.pojo.Blog;
 import top.sicso.blog.pojo.Project;
 
+/**
+ * @Author: myyl
+ * @Time: 2019/04/15 13:14:00
+ * @Description:
+ */
+
+
 @Repository
 public interface ProjectRepository extends JpaRepository<Project, Integer>, JpaSpecificationExecutor<Project> {
 

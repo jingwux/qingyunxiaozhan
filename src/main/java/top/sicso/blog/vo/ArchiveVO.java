@@ -5,9 +5,14 @@ import top.sicso.blog.pojo.Blog;
 
 import java.util.List;
 
+
 /**
- * 前端页面archives显示的博客列表对应的实体
+ * @Author: myyl
+ * @Time: 2019/04/15 13:14:00
+ * @Description:
  */
+
+
 @Data
 public class ArchiveVO {
 

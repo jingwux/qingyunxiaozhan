@@ -6,6 +6,13 @@ import lombok.Data;
 import javax.persistence.*;
 import java.util.Objects;
 
+/**
+ * @Author: myyl
+ * @Time: 2019/04/15 13:14:00
+ * @Description:
+ */
+
+
 @Entity
 @Data
 @Table(name = "tb_tag")

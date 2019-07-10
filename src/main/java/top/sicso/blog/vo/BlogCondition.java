@@ -6,6 +6,13 @@ import top.sicso.blog.common.BaseCondition;
 
 import java.sql.Date;
 
+/**
+ * @Author: myyl
+ * @Time: 2019/04/15 13:14:00
+ * @Description:
+ */
+
+
 @Data
 @EqualsAndHashCode(callSuper = false)
 public class BlogCondition extends BaseCondition {

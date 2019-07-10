@@ -6,8 +6,12 @@ import javax.persistence.Table;
 
 
 /**
- * 个人信息实体
+ * @Author: myyl
+ * @Time: 2019/04/15 13:14:00
+ * @Description:
  */
+
+
 @Setter
 @Getter
 @NoArgsConstructor
