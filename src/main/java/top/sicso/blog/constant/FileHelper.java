@@ -28,7 +28,7 @@ public class FileHelper {
     public static String PICTURE;
 
 
-    @Value("${base.filepath}")
+    @Value("${filepath.base}")
     public void setBaseFilepath(String baseFilepath) {
         BASE_FILEPATH = baseFilepath;
     }
