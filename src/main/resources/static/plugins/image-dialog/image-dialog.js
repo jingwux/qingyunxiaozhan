@@ -128,6 +128,7 @@
 				var fileInput  = dialog.find("[name=\"" + classPrefix + "image-file\"]");
 
 				fileInput.bind("change", function() {
+
 					var fileName  = fileInput.val();
 					var isImage   = new RegExp("(\\.(" + settings.imageFormats.join("|") + "))$"); // /(\.(webp|jpg|jpeg|gif|bmp|png))$/
 
@@ -152,7 +153,7 @@
                         var uploadIframe = document.getElementById(iframeName);
 
                         uploadIframe.onload = function() {
-
+                            debugger;
                             loading(false);
 
                             var body = (uploadIframe.contentWindow ? uploadIframe.contentWindow : uploadIframe.contentDocument).document.body;
